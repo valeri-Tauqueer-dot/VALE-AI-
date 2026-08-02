@@ -2572,8 +2572,7 @@ grid-template-columns:1fr;
 }
 
 .nav-menu a{
-
-    color:#d7d7d7;
+color:#d7d7d7;
 
     text-decoration:none;
 
@@ -2606,3 +2605,30 @@ grid-template-columns:1fr;
     }
 
 }
+.vale-chat {
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#chatBox {
+    min-height: 150px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+#userInput {
+    width: 70%;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.vale-chat button {
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+  
