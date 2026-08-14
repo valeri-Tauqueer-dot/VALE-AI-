@@ -17,6 +17,14 @@
 
 <body>
 
+  <script>
+    const valeToken = localStorage.getItem("vale_token");
+
+    if (!valeToken) {
+        window.location.href = "login.html";
+    }
+  </script>
+
 <!-- TOP NAVIGATION -->
 
 <header class="topbar">
