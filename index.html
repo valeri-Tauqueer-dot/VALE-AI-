@@ -17,13 +17,14 @@
 
 <body>
 
-  <script>
-    const valeToken = localStorage.getItem("vale_token");
+<script>
+const valeToken = localStorage.getItem("vale_token");
 
-    if (!valeToken) {
-        window.location.href = "login.html";
-    }
-  </script>
+if (!valeToken) {
+    window.location.href = "login.html";
+}
+</script>
+
 
 <!-- TOP NAVIGATION -->
 
@@ -73,11 +74,10 @@ stroke-width="5"/>
 
 <a href="intelligence.html">Hub</a>
 
-<a href="#" onclick="logout()">Logout</a>
-
 </nav>
 
 </header>
+
 
 <!-- HERO -->
 
@@ -116,6 +116,7 @@ ENTER VALE
 </button>
 
 </div>
+
 
 <!-- INTELLIGENCE DISPLAY -->
 
@@ -170,6 +171,8 @@ READY
 </div>
 
 </section>
+
+
 <!-- PLATFORM -->
 
 <section class="platform">
@@ -198,6 +201,7 @@ Advanced understanding of market behaviour.
 
 </div>
 
+
 <div class="card">
 
 <h3>
@@ -214,6 +218,7 @@ Research, testing and strategy evolution.
 
 </div>
 
+
 <div class="card">
 
 <h3>
@@ -229,6 +234,7 @@ Intelligent risk awareness and protection.
 </p>
 
 </div>
+
 
 <div class="card">
 
@@ -250,6 +256,7 @@ Turning information into intelligent actions.
 
 </section>
 
+
 <!-- VISION -->
 
 <section class="vision">
@@ -269,6 +276,9 @@ ecosystem.
 </p>
 
 </section>
+
+
+<!-- VALE CHAT -->
 
 <section class="vale-chat">
 
@@ -293,6 +303,22 @@ Send
 </button>
 
 </section>
+
+
+<!-- LOGOUT -->
+
+<section class="logout-section">
+
+<button
+type="button"
+onclick="logout()"
+>
+Logout
+</button>
+
+</section>
+
+
 <!-- FOOTER -->
 
 <footer>
@@ -305,9 +331,22 @@ VALE AI Trading © 2026
 
 </footer>
 
+
 <script src="script.js"></script>
 
 <script src="app.js"></script>
+
+<script>
+
+function logout() {
+
+    localStorage.removeItem("vale_token");
+
+    window.location.href = "login.html";
+
+}
+
+</script>
 
 </body>
 
