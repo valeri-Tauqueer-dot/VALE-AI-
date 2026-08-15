@@ -1,6 +1,8 @@
-const signupBtn = document.getElementById("signupBtn");
+const signupForm = document.getElementById("signupForm");
 
-signupBtn.addEventListener("click", async () => {
+signupForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -8,13 +10,11 @@ signupBtn.addEventListener("click", async () => {
     const confirmPassword =
         document.getElementById("confirmPassword").value;
 
-    // Check fields
     if (!username || !email || !password || !confirmPassword) {
         alert("Please fill all required fields.");
         return;
     }
 
-    // Check password confirmation
     if (password !== confirmPassword) {
         alert("Passwords do not match.");
         return;
