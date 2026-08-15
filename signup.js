@@ -1,71 +1,111 @@
-const signupForm = document.getElementById("signupForm");
+<!DOCTYPE html>
+<html lang="en">
 
-signupForm.addEventListener("submit", async (e) => {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    e.preventDefault();
+    <title>Create VALE Account</title>
 
-    const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword =
-        document.getElementById("confirmPassword").value;
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
 
-    if (!username || !email || !password || !confirmPassword) {
-        alert("Please fill all required fields.");
-        return;
-    }
+<body>
 
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return;
-    }
+<header class="topbar">
 
-    try {
+    <div class="brand">
 
-        const response = await fetch(
-            "https://vale-backend-ye4r.onrender.com/signup",
-            {
-                method: "POST",
+        <div class="vale-symbol">
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+            <svg viewBox="0 0 120 120" fill="none">
+                <path
+                    d="M18 18L60 102L102 18"
+                    stroke="#D4AF37"
+                    stroke-width="6"
+                />
 
-                body: JSON.stringify({
-                    username: username,
-                    email: email,
-                    password: password
-                })
-            }
-        );
+                <path
+                    d="M36 44L60 82L84 44"
+                    stroke="#00E5FF"
+                    stroke-width="5"
+                />
+            </svg>
 
-        const data = await response.json();
+        </div>
 
-        console.log("VALE signup response:", data);
+        <div class="brand-name">
+            <h2>VALE</h2>
+            <span>AI TRADING</span>
+        </div>
 
-        if (response.ok && data.success === true) {
+    </div>
 
-            alert("Account Created Successfully!");
+</header>
 
-            window.location.href = "login.html";
 
-        } else {
+<main class="auth-page">
 
-            alert(
-                data.message ||
-                data.detail ||
-                "Account creation failed."
-            );
-        }
+    <div class="auth-card">
 
-    } catch (error) {
+        <h1>Create Account</h1>
 
-        console.error("VALE signup error:", error);
+        <p>Join the VALE Intelligence System</p>
 
-        alert(
-            "Unable to connect to VALE server.\n\n" +
-            "Check that the VALE backend is running."
-        );
-    }
 
-});
+        <form id="signupForm">
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                required
+            >
+
+            <button
+                type="submit"
+                id="signupBtn"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+
+        <p>
+            Already have an account?
+            <a href="login.html">Sign In</a>
+        </p>
+
+    </div>
+
+</main>
+
+
+<script src="signup.js"></script>
+
+</body>
+
+</html>
