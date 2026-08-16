@@ -1,63 +1,922 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   VALE 3D CORE ENGINE
+   WebGL / Three.js
+   ========================================================= */
 
-    const test = document.createElement("div");
+import * as THREE from
+"https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.module.js";
 
-    test.innerHTML = `
-        <div style="
-            position:fixed;
-            inset:0;
-            z-index:99999;
-            background:#05070a;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            color:#00e5ff;
-            font-family:Arial,sans-serif;
-            text-align:center;
-        ">
 
-            <div style="
-                width:120px;
-                height:120px;
-                border:2px solid #00e5ff;
-                border-radius:50%;
-                box-shadow:
-                    0 0 20px #00e5ff,
-                    0 0 60px #00e5ff;
-                animation:spin 3s linear infinite;
-            "></div>
+class VALECore3D {
 
-            <h2 style="
-                margin-top:30px;
-                letter-spacing:5px;
-            ">
-                VALE
-            </h2>
+    constructor() {
 
-            <p>
-                3D CORE INITIALIZING
-            </p>
+        this.scene = null;
+        this.camera = null;
+        this.renderer = null;
 
-        </div>
+        this.container = null;
 
-        <style>
+        this.core = null;
+        this.nucleus = null;
+        this.particles = null;
 
-            @keyframes spin {
+        this.rings = [];
 
-                from {
-                    transform:rotate(0deg);
-                }
+        this.clock = new THREE.Clock();
 
-                to {
-                    transform:rotate(360deg);
-                }
+        this.running = false;
+
+        this.statusElement = null;
+
+        this.animationFrame = null;
+
+    }
+
+
+    /* =====================================================
+       START CORE
+       ===================================================== */
+
+    start() {
+
+        if (this.running) return;
+
+        this.running = true;
+
+        this.createContainer();
+
+        this.createScene();
+
+        this.createCamera();
+
+        this.createRenderer();
+
+        this.createLights();
+
+        this.createCore();
+
+        this.createEnergyRings();
+
+        this.createParticles();
+
+        this.createEvents();
+
+        this.animate();
+
+    }
+
+
+    /* =====================================================
+       CREATE VALE CONTAINER
+       ===================================================== */
+
+    createContainer() {
+
+        this.container =
+            document.createElement("div");
+
+        this.container.id =
+            "VALECore3D";
+
+
+        this.container.innerHTML = `
+
+            <div class="vale-hud">
+
+                <div class="vale-logo">
+                    VALE
+                </div>
+
+                <div class="vale-subtitle">
+                    ARTIFICIAL INTELLIGENCE SYSTEM
+                </div>
+
+            </div>
+
+
+            <div class="vale-side left">
+
+                SYSTEM<br>
+                <span>ONLINE</span><br>
+
+                CORE<br>
+                <span>ACTIVE</span><br>
+
+                NETWORK<br>
+                <span>CONNECTED</span>
+
+            </div>
+
+
+            <div class="vale-side right">
+
+                NEURAL<br>
+                <span>READY</span><br>
+
+                SECURITY<br>
+                <span>ACTIVE</span><br>
+
+                ENGINE<br>
+                <span>INITIALIZING</span>
+
+            </div>
+
+
+            <div class="vale-center-ui">
+
+                <div
+                    id="valeCoreStatus"
+                    class="vale-status"
+                >
+                    AWAKENING VALE CORE
+                </div>
+
+                <div
+                    class="vale-status-line"
+                ></div>
+
+                <div
+                    class="vale-system-text"
+                >
+                    INTELLIGENCE SYSTEM INITIALIZATION
+                </div>
+
+            </div>
+
+
+            <div class="vale-bottom">
+
+                VALE INTELLIGENCE ARCHITECTURE
+
+            </div>
+
+
+            <div class="vale-vignette"></div>
+
+        `;
+
+
+        document.body.appendChild(
+            this.container
+        );
+
+
+        this.statusElement =
+            this.container.querySelector(
+                "#valeCoreStatus"
+            );
+
+    }
+
+
+    /* =====================================================
+       SCENE
+       ===================================================== */
+
+    createScene() {
+
+        this.scene =
+            new THREE.Scene();
+
+    }
+
+
+    /* =====================================================
+       CAMERA
+       ===================================================== */
+
+    createCamera() {
+
+        this.camera =
+            new THREE.PerspectiveCamera(
+
+                45,
+
+                window.innerWidth /
+                window.innerHeight,
+
+                0.1,
+
+                100
+
+            );
+
+
+        this.camera.position.z =
+            5.8;
+
+    }
+
+
+    /* =====================================================
+       WEBGL RENDERER
+       ===================================================== */
+
+    createRenderer() {
+
+        const canvas =
+            document.createElement("canvas");
+
+
+        this.container.appendChild(
+            canvas
+        );
+
+
+        this.renderer =
+            new THREE.WebGLRenderer({
+
+                canvas: canvas,
+
+                antialias: true,
+
+                alpha: true,
+
+                powerPreference:
+                    "high-performance"
+
+            });
+
+
+        this.renderer.setPixelRatio(
+
+            Math.min(
+                window.devicePixelRatio || 1,
+                1.5
+            )
+
+        );
+
+
+        this.renderer.setSize(
+
+            window.innerWidth,
+
+            window.innerHeight,
+
+            false
+
+        );
+
+
+        this.renderer.outputColorSpace =
+            THREE.SRGBColorSpace;
+
+    }
+
+
+    /* =====================================================
+       LIGHTING
+       ===================================================== */
+
+    createLights() {
+
+        const ambient =
+            new THREE.AmbientLight(
+                0x12333d,
+                2
+            );
+
+
+        this.scene.add(
+            ambient
+        );
+
+
+        const cyanLight =
+            new THREE.PointLight(
+                0x00e5ff,
+                18,
+                10
+            );
+
+
+        cyanLight.position.set(
+            2.5,
+            2,
+            3
+        );
+
+
+        this.scene.add(
+            cyanLight
+        );
+
+
+        const goldLight =
+            new THREE.PointLight(
+                0xd4af37,
+                14,
+                9
+            );
+
+
+        goldLight.position.set(
+            -2,
+            -1.5,
+            2
+        );
+
+
+        this.scene.add(
+            goldLight
+        );
+
+    }
+
+
+    /* =====================================================
+       CENTRAL INTELLIGENCE CORE
+       ===================================================== */
+
+    createCore() {
+
+        this.core =
+            new THREE.Group();
+
+
+        this.scene.add(
+            this.core
+        );
+
+
+        /* MAIN CORE */
+
+        const geometry =
+            new THREE.IcosahedronGeometry(
+                0.7,
+                4
+            );
+
+
+        const material =
+            new THREE.MeshPhysicalMaterial({
+
+                color: 0x00dfff,
+
+                emissive: 0x003f49,
+
+                emissiveIntensity: 3,
+
+                metalness: 0.6,
+
+                roughness: 0.1,
+
+                transparent: true,
+
+                opacity: 0.9
+
+            });
+
+
+        const body =
+            new THREE.Mesh(
+                geometry,
+                material
+            );
+
+
+        this.core.add(
+            body
+        );
+
+
+        /* ENERGY WIREFRAME */
+
+        const wireGeometry =
+            new THREE.IcosahedronGeometry(
+                0.84,
+                2
+            );
+
+
+        const wireMaterial =
+            new THREE.MeshBasicMaterial({
+
+                color: 0x00e5ff,
+
+                wireframe: true,
+
+                transparent: true,
+
+                opacity: 0.4
+
+            });
+
+
+        const wire =
+            new THREE.Mesh(
+                wireGeometry,
+                wireMaterial
+            );
+
+
+        this.core.add(
+            wire
+        );
+
+
+        /* INNER NUCLEUS */
+
+        const nucleusGeometry =
+            new THREE.SphereGeometry(
+                0.23,
+                32,
+                32
+            );
+
+
+        const nucleusMaterial =
+            new THREE.MeshBasicMaterial({
+
+                color: 0xffffff
+
+            });
+
+
+        this.nucleus =
+            new THREE.Mesh(
+                nucleusGeometry,
+                nucleusMaterial
+            );
+
+
+        this.core.add(
+            this.nucleus
+        );
+
+
+        /* CORE GLOW */
+
+        const glowGeometry =
+            new THREE.SphereGeometry(
+                1.05,
+                32,
+                32
+            );
+
+
+        const glowMaterial =
+            new THREE.MeshBasicMaterial({
+
+                color: 0x00e5ff,
+
+                transparent: true,
+
+                opacity: 0.06,
+
+                side: THREE.BackSide
+
+            });
+
+
+        const glow =
+            new THREE.Mesh(
+                glowGeometry,
+                glowMaterial
+            );
+
+
+        this.core.add(
+            glow
+        );
+
+    }
+
+
+    /* =====================================================
+       ENERGY RINGS
+       ===================================================== */
+
+    createEnergyRings() {
+
+        for (
+            let i = 0;
+            i < 6;
+            i++
+        ) {
+
+            const radius =
+                1.05 +
+                i * 0.15;
+
+
+            const geometry =
+                new THREE.TorusGeometry(
+
+                    radius,
+
+                    0.008,
+
+                    8,
+
+                    160
+
+                );
+
+
+            const material =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        i % 2 === 0
+                            ? 0x00e5ff
+                            : 0xd4af37,
+
+                    transparent: true,
+
+                    opacity:
+                        0.35 +
+                        i * 0.04
+
+                });
+
+
+            const ring =
+                new THREE.Mesh(
+                    geometry,
+                    material
+                );
+
+
+            ring.rotation.x =
+                Math.random() *
+                Math.PI;
+
+
+            ring.rotation.y =
+                Math.random() *
+                Math.PI;
+
+
+            ring.rotation.z =
+                Math.random() *
+                Math.PI;
+
+
+            ring.userData.speed =
+                0.0015 +
+                Math.random() *
+                0.003;
+
+
+            this.scene.add(
+                ring
+            );
+
+
+            this.rings.push(
+                ring
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PARTICLE FIELD
+       ===================================================== */
+
+    createParticles() {
+
+        const count =
+            window.innerWidth < 700
+                ? 700
+                : 1400;
+
+
+        const positions =
+            new Float32Array(
+                count * 3
+            );
+
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
+
+            const radius =
+                1.5 +
+                Math.random() * 4;
+
+
+            const angle =
+                Math.random() *
+                Math.PI *
+                2;
+
+
+            positions[i * 3] =
+                Math.cos(angle) *
+                radius;
+
+
+            positions[i * 3 + 1] =
+                (
+                    Math.random() -
+                    0.5
+                ) * 5;
+
+
+            positions[i * 3 + 2] =
+                Math.sin(angle) *
+                radius;
+
+        }
+
+
+        const geometry =
+            new THREE.BufferGeometry();
+
+
+        geometry.setAttribute(
+
+            "position",
+
+            new THREE.BufferAttribute(
+                positions,
+                3
+            )
+
+        );
+
+
+        const material =
+            new THREE.PointsMaterial({
+
+                color: 0x00e5ff,
+
+                size: 0.02,
+
+                transparent: true,
+
+                opacity: 0.6,
+
+                depthWrite: false,
+
+                blending:
+                    THREE.AdditiveBlending
+
+            });
+
+
+        this.particles =
+            new THREE.Points(
+                geometry,
+                material
+            );
+
+
+        this.scene.add(
+            this.particles
+        );
+
+    }
+
+
+    /* =====================================================
+       WINDOW EVENTS
+       ===================================================== */
+
+    createEvents() {
+
+        this.resizeHandler =
+            () => this.resize();
+
+
+        window.addEventListener(
+            "resize",
+            this.resizeHandler
+        );
+
+    }
+
+
+    /* =====================================================
+       RESIZE
+       ===================================================== */
+
+    resize() {
+
+        if (!this.camera)
+            return;
+
+
+        this.camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+
+        this.camera.updateProjectionMatrix();
+
+
+        this.renderer.setSize(
+
+            window.innerWidth,
+
+            window.innerHeight,
+
+            false
+
+        );
+
+    }
+
+
+    /* =====================================================
+       CHANGE STATUS
+       ===================================================== */
+
+    setStatus(text) {
+
+        if (
+            this.statusElement
+        ) {
+
+            this.statusElement.textContent =
+                text;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ANIMATION LOOP
+       ===================================================== */
+
+    animate() {
+
+        if (!this.running)
+            return;
+
+
+        this.animationFrame =
+            requestAnimationFrame(
+                () => this.animate()
+            );
+
+
+        const time =
+            this.clock.getElapsedTime();
+
+
+        /* CORE ROTATION */
+
+        if (this.core) {
+
+            this.core.rotation.x =
+                time * 0.25;
+
+            this.core.rotation.y =
+                time * 0.4;
+
+        }
+
+
+        /* NUCLEUS PULSE */
+
+        if (this.nucleus) {
+
+            const pulse =
+                1 +
+                Math.sin(
+                    time * 3
+                ) * 0.12;
+
+
+            this.nucleus.scale.setScalar(
+                pulse
+            );
+
+        }
+
+
+        /* RINGS */
+
+        this.rings.forEach(
+            (ring, index) => {
+
+                ring.rotation.x +=
+                    ring.userData.speed *
+                    (index + 1);
+
+                ring.rotation.y +=
+                    ring.userData.speed *
+                    0.7 *
+                    (index + 1);
 
             }
+        );
 
-        </style>
-    `;
 
-    document.body.appendChild(test);
+        /* PARTICLES */
 
-});
+        if (this.particles) {
+
+            this.particles.rotation.y =
+                time * 0.02;
+
+        }
+
+
+        /* SMALL CAMERA MOVEMENT */
+
+        this.camera.position.x =
+            Math.sin(
+                time * 0.2
+            ) * 0.06;
+
+
+        this.camera.position.y =
+            Math.cos(
+                time * 0.15
+            ) * 0.04;
+
+
+        this.camera.lookAt(
+            0,
+            0,
+            0
+        );
+
+
+        /* RENDER */
+
+        this.renderer.render(
+            this.scene,
+            this.camera
+        );
+
+    }
+
+
+    /* =====================================================
+       STOP CORE
+       ===================================================== */
+
+    stop() {
+
+        this.running = false;
+
+
+        if (
+            this.animationFrame
+        ) {
+
+            cancelAnimationFrame(
+                this.animationFrame
+            );
+
+        }
+
+
+        window.removeEventListener(
+            "resize",
+            this.resizeHandler
+        );
+
+
+        if (this.renderer) {
+
+            this.renderer.dispose();
+
+        }
+
+
+        if (this.container) {
+
+            this.container.remove();
+
+        }
+
+
+        this.scene = null;
+
+        this.camera = null;
+
+        this.renderer = null;
+
+        this.core = null;
+
+        this.nucleus = null;
+
+        this.particles = null;
+
+        this.rings = [];
+
+    }
+
+}
+
+
+/* =========================================================
+   GLOBAL VALE CORE
+   ========================================================= */
+
+window.VALECore =
+    new VALECore3D();
