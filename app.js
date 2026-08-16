@@ -1,5 +1,5 @@
 // ==========================
-// VALE AI FRONTEND
+// VALE AI INTERFACE
 // ==========================
 
 const API_URL =
@@ -12,41 +12,17 @@ const API_URL =
 
 function logout() {
 
-    localStorage.removeItem("vale_token");
-
-    window.location.href = "login.html";
-}
-
-
-// ==========================
-// ADD CHAT MESSAGE SAFELY
-// ==========================
-
-function addChatMessage(chat, sender, text) {
-
-    const paragraph =
-        document.createElement("p");
-
-    const label =
-        document.createElement("b");
-
-    label.textContent =
-        sender + ":";
-
-    paragraph.appendChild(label);
-
-    paragraph.appendChild(
-        document.createTextNode(
-            " " + String(text)
-        )
+    localStorage.removeItem(
+        "vale_token"
     );
 
-    chat.appendChild(paragraph);
+    window.location.href =
+        "login.html";
 }
 
 
 // ==========================
-// CHAT
+// SEND MESSAGE
 // ==========================
 
 async function sendMessage() {
@@ -65,6 +41,7 @@ async function sendMessage() {
         );
 
         return;
+
     }
 
 
@@ -80,7 +57,7 @@ async function sendMessage() {
 
 
     // ==========================
-    // CHECK LOGIN TOKEN
+    // GET LOGIN TOKEN
     // ==========================
 
     const token =
@@ -99,12 +76,18 @@ async function sendMessage() {
     }
 
 
-    // Show user message
+    // ==========================
+    // SHOW USER MESSAGE
+    // ==========================
 
-    addChatMessage(
-        chat,
-        "You",
-        message
+    const userMessage =
+        document.createElement("p");
+
+    userMessage.textContent =
+        "You: " + message;
+
+    chat.appendChild(
+        userMessage
     );
 
 
@@ -112,6 +95,10 @@ async function sendMessage() {
 
 
     try {
+
+        // ==========================
+        // SEND TO VALE BACKEND
+        // ==========================
 
         const response =
             await fetch(
@@ -143,7 +130,7 @@ async function sendMessage() {
 
 
         // ==========================
-        // AUTHENTICATION FAILURE
+        // TOKEN INVALID / EXPIRED
         // ==========================
 
         if (response.status === 401) {
@@ -160,10 +147,14 @@ async function sendMessage() {
         }
 
 
+        // ==========================
+        // OTHER SERVER ERROR
+        // ==========================
+
         if (!response.ok) {
 
             throw new Error(
-                "Backend returned HTTP " +
+                "VALE server error: " +
                 response.status
             );
 
@@ -174,12 +165,18 @@ async function sendMessage() {
             await response.json();
 
 
-        // Show VALE response safely
+        // ==========================
+        // SHOW VALE RESPONSE
+        // ==========================
 
-        addChatMessage(
-            chat,
-            "VALE",
-            data.vale
+        const valeMessage =
+            document.createElement("p");
+
+        valeMessage.textContent =
+            "VALE: " + data.vale;
+
+        chat.appendChild(
+            valeMessage
         );
 
 
@@ -190,15 +187,19 @@ async function sendMessage() {
     } catch (error) {
 
         console.error(
-            "VALE backend error:",
+            "VALE chat error:",
             error
         );
 
 
-        addChatMessage(
-            chat,
-            "VALE",
-            "Backend connection failed."
+        const errorMessage =
+            document.createElement("p");
+
+        errorMessage.textContent =
+            "VALE: Unable to connect to the server.";
+
+        chat.appendChild(
+            errorMessage
         );
 
     }
