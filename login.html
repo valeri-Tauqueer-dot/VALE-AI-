@@ -99,6 +99,22 @@ Create Account
 
 <script type="module" src="vale-core-3d.js"></script>
 
+  <script type="module">
+    window.addEventListener("load", () => {
+
+        if (window.VALECore) {
+
+            window.VALECore.start();
+
+            window.VALECore.setStatus(
+                "AWAKENING VALE CORE"
+            );
+
+        }
+
+    });
+      </script>
+
 <script src="login.js"></script>
 
 </body>
