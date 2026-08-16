@@ -1,0 +1,358 @@
+/* =========================================================
+   VALE 3D CORE
+   Cinematic Intelligence Interface
+   ========================================================= */
+
+#VALECore3D {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: 99999;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 229, 255, 0.08) 0%,
+            rgba(0, 15, 22, 0.92) 38%,
+            #000 100%
+        );
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    user-select: none;
+
+    opacity: 0;
+
+    animation:
+        VALECoreAppear 1s ease forwards;
+}
+
+
+/* =========================================================
+   CANVAS
+   ========================================================= */
+
+#VALECore3D canvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* =========================================================
+   CINEMATIC VIGNETTE
+   ========================================================= */
+
+.vale-vignette {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 25%,
+            rgba(0,0,0,0.25) 65%,
+            rgba(0,0,0,0.85) 100%
+        );
+}
+
+
+/* =========================================================
+   TOP HUD
+   ========================================================= */
+
+.vale-hud {
+
+    position: absolute;
+
+    top: 32px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+.vale-logo {
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    letter-spacing: 12px;
+
+    margin-left: 12px;
+
+    color: #D4AF37;
+
+    text-shadow:
+
+        0 0 8px
+        rgba(212,175,55,0.8),
+
+        0 0 25px
+        rgba(212,175,55,0.35);
+}
+
+
+.vale-subtitle {
+
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    color: #00E5FF;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   CENTER INFORMATION
+   ========================================================= */
+
+.vale-center-ui {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, 135px);
+
+    text-align: center;
+
+    pointer-events: none;
+
+    min-width: 260px;
+}
+
+
+.vale-status {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #00E5FF;
+
+    text-shadow:
+        0 0 12px
+        rgba(0,229,255,0.8);
+}
+
+
+.vale-status-line {
+
+    width: 180px;
+
+    height: 1px;
+
+    margin: 13px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00E5FF,
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(0,229,255,0.8);
+}
+
+
+.vale-system-text {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.55);
+}
+
+
+/* =========================================================
+   SIDE SYSTEM DATA
+   ========================================================= */
+
+.vale-side {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    line-height: 2.4;
+
+    color: rgba(255,255,255,0.45);
+
+    pointer-events: none;
+}
+
+
+.vale-side.left {
+
+    left: 25px;
+
+    text-align: left;
+}
+
+
+.vale-side.right {
+
+    right: 25px;
+
+    text-align: right;
+}
+
+
+.vale-side span {
+
+    color: #00E5FF;
+
+    text-shadow:
+        0 0 8px
+        rgba(0,229,255,0.7);
+}
+
+
+/* =========================================================
+   BOTTOM HUD
+   ========================================================= */
+
+.vale-bottom {
+
+    position: absolute;
+
+    bottom: 28px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+.vale-boot {
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.4);
+}
+
+
+/* =========================================================
+   FADE
+   ========================================================= */
+
+@keyframes VALECoreAppear {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .vale-logo {
+
+        font-size: 21px;
+
+        letter-spacing: 9px;
+    }
+
+
+    .vale-subtitle {
+
+        font-size: 7px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .vale-side {
+
+        font-size: 6px;
+
+        opacity: 0.7;
+    }
+
+
+    .vale-side.left {
+
+        left: 10px;
+    }
+
+
+    .vale-side.right {
+
+        right: 10px;
+    }
+
+
+    .vale-center-ui {
+
+        transform:
+            translate(-50%, 120px);
+    }
+
+}

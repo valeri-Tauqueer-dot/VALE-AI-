@@ -1,0 +1,1161 @@
+/* =========================================================
+   VALE 3D CORE ENGINE
+   Three.js / WebGL
+   ========================================================= */
+
+import * as THREE from
+"https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.module.js";
+
+
+/* =========================================================
+   VALE CORE CLASS
+   ========================================================= */
+
+class VALECore3D {
+
+    constructor() {
+
+        this.container = null;
+
+        this.scene = null;
+
+        this.camera = null;
+
+        this.renderer = null;
+
+        this.clock = new THREE.Clock();
+
+        this.core = null;
+
+        this.nucleus = null;
+
+        this.glow = null;
+
+        this.rings = [];
+
+        this.particles = null;
+
+        this.animationID = null;
+
+        this.statusElement = null;
+
+        this.active = false;
+
+    }
+
+
+    /* =====================================================
+       START
+       ===================================================== */
+
+    start() {
+
+        if (this.active) return;
+
+        this.active = true;
+
+        this.createInterface();
+
+        this.createScene();
+
+        this.createCamera();
+
+        this.createRenderer();
+
+        this.createLights();
+
+        this.createCore();
+
+        this.createRings();
+
+        this.createParticles();
+
+        this.addEvents();
+
+        this.animate();
+
+    }
+
+
+    /* =====================================================
+       INTERFACE
+       ===================================================== */
+
+    createInterface() {
+
+        this.container =
+            document.createElement("div");
+
+        this.container.id =
+            "VALECore3D";
+
+
+        this.container.innerHTML = `
+
+            <div class="vale-hud">
+
+                <div class="vale-logo">
+                    VALE
+                </div>
+
+                <div class="vale-subtitle">
+                    ARTIFICIAL INTELLIGENCE SYSTEM
+                </div>
+
+            </div>
+
+
+            <div class="vale-side left">
+
+                SYSTEM<br>
+
+                <span>ONLINE</span><br>
+
+                CORE<br>
+
+                <span>ACTIVE</span><br>
+
+                NETWORK<br>
+
+                <span>CONNECTED</span>
+
+            </div>
+
+
+            <div class="vale-side right">
+
+                NEURAL<br>
+
+                <span>READY</span><br>
+
+                SECURITY<br>
+
+                <span>ACTIVE</span><br>
+
+                ENGINE<br>
+
+                <span>INITIALIZING</span>
+
+            </div>
+
+
+            <div class="vale-center-ui">
+
+                <div
+                    class="vale-status"
+                    id="valeCoreStatus"
+                >
+                    AWAKENING VALE CORE
+                </div>
+
+                <div
+                    class="vale-status-line"
+                ></div>
+
+                <div class="vale-system-text">
+
+                    INTELLIGENCE SYSTEM INITIALIZATION
+
+                </div>
+
+            </div>
+
+
+            <div class="vale-bottom">
+
+                <div class="vale-boot">
+
+                    VALE INTELLIGENCE ARCHITECTURE
+
+                </div>
+
+            </div>
+
+
+            <div class="vale-vignette"></div>
+
+        `;
+
+
+        document.body.appendChild(
+            this.container
+        );
+
+
+        this.statusElement =
+            document.getElementById(
+                "valeCoreStatus"
+            );
+
+    }
+
+
+    /* =====================================================
+       SCENE
+       ===================================================== */
+
+    createScene() {
+
+        this.scene =
+            new THREE.Scene();
+
+    }
+
+
+    /* =====================================================
+       CAMERA
+       ===================================================== */
+
+    createCamera() {
+
+        this.camera =
+            new THREE.PerspectiveCamera(
+
+                45,
+
+                window.innerWidth /
+                window.innerHeight,
+
+                0.1,
+
+                100
+
+            );
+
+
+        this.camera.position.z =
+            6;
+
+    }
+
+
+    /* =====================================================
+       RENDERER
+       ===================================================== */
+
+    createRenderer() {
+
+        const canvas =
+            document.createElement(
+                "canvas"
+            );
+
+
+        this.container.appendChild(
+            canvas
+        );
+
+
+        this.renderer =
+            new THREE.WebGLRenderer({
+
+                canvas: canvas,
+
+                antialias: true,
+
+                alpha: true,
+
+                powerPreference:
+                    "high-performance"
+
+            });
+
+
+        const pixelRatio =
+            Math.min(
+                window.devicePixelRatio || 1,
+                1.7
+            );
+
+
+        this.renderer.setPixelRatio(
+            pixelRatio
+        );
+
+
+        this.renderer.setSize(
+
+            window.innerWidth,
+
+            window.innerHeight,
+
+            false
+
+        );
+
+
+        this.renderer.outputColorSpace =
+            THREE.SRGBColorSpace;
+
+    }
+
+
+    /* =====================================================
+       LIGHTING
+       ===================================================== */
+
+    createLights() {
+
+
+        const ambient =
+            new THREE.AmbientLight(
+
+                0x08232c,
+
+                2.5
+
+            );
+
+
+        this.scene.add(
+            ambient
+        );
+
+
+        const cyanLight =
+            new THREE.PointLight(
+
+                0x00e5ff,
+
+                20,
+
+                9
+
+            );
+
+
+        cyanLight.position.set(
+
+            2.5,
+
+            2.5,
+
+            3
+
+        );
+
+
+        this.scene.add(
+            cyanLight
+        );
+
+
+        const goldLight =
+            new THREE.PointLight(
+
+                0xd4af37,
+
+                15,
+
+                8
+
+            );
+
+
+        goldLight.position.set(
+
+            -2.5,
+
+            -1.5,
+
+            2
+
+        );
+
+
+        this.scene.add(
+            goldLight
+        );
+
+
+        const backLight =
+            new THREE.PointLight(
+
+                0x0088ff,
+
+                10,
+
+                7
+
+            );
+
+
+        backLight.position.set(
+
+            0,
+
+            0,
+
+            -3
+
+        );
+
+
+        this.scene.add(
+            backLight
+        );
+
+    }
+
+
+    /* =====================================================
+       CENTRAL CORE
+       ===================================================== */
+
+    createCore() {
+
+        const group =
+            new THREE.Group();
+
+
+        this.scene.add(
+            group
+        );
+
+
+        this.core =
+            group;
+
+
+        /* ---------------------------------------------
+           MAIN CRYSTALLINE BODY
+           --------------------------------------------- */
+
+        const geometry =
+            new THREE.IcosahedronGeometry(
+
+                0.72,
+
+                4
+
+            );
+
+
+        const material =
+            new THREE.MeshPhysicalMaterial({
+
+                color:
+                    0x00d9ff,
+
+                emissive:
+                    0x003a46,
+
+                emissiveIntensity:
+                    3,
+
+                metalness:
+                    0.55,
+
+                roughness:
+                    0.12,
+
+                transparent:
+                    true,
+
+                opacity:
+                    0.9,
+
+                wireframe:
+                    false
+
+            });
+
+
+        const crystal =
+            new THREE.Mesh(
+
+                geometry,
+
+                material
+
+            );
+
+
+        group.add(
+            crystal
+        );
+
+
+        /* ---------------------------------------------
+           WIREFRAME ENERGY SHELL
+           --------------------------------------------- */
+
+        const wireGeometry =
+            new THREE.IcosahedronGeometry(
+
+                0.82,
+
+                2
+
+            );
+
+
+        const wireMaterial =
+            new THREE.MeshBasicMaterial({
+
+                color:
+                    0x00e5ff,
+
+                wireframe:
+                    true,
+
+                transparent:
+                    true,
+
+                opacity:
+                    0.35
+
+            });
+
+
+        const wire =
+            new THREE.Mesh(
+
+                wireGeometry,
+
+                wireMaterial
+
+            );
+
+
+        group.add(
+            wire
+        );
+
+
+        /* ---------------------------------------------
+           INNER NUCLEUS
+           --------------------------------------------- */
+
+        const nucleusGeometry =
+            new THREE.SphereGeometry(
+
+                0.25,
+
+                32,
+
+                32
+
+            );
+
+
+        const nucleusMaterial =
+            new THREE.MeshBasicMaterial({
+
+                color:
+                    0xffffff
+
+            });
+
+
+        this.nucleus =
+            new THREE.Mesh(
+
+                nucleusGeometry,
+
+                nucleusMaterial
+
+            );
+
+
+        group.add(
+            this.nucleus
+        );
+
+
+        /* ---------------------------------------------
+           ENERGY GLOW
+           --------------------------------------------- */
+
+        const glowGeometry =
+            new THREE.SphereGeometry(
+
+                1.05,
+
+                32,
+
+                32
+
+            );
+
+
+        const glowMaterial =
+            new THREE.MeshBasicMaterial({
+
+                color:
+                    0x00e5ff,
+
+                transparent:
+                    true,
+
+                opacity:
+                    0.055,
+
+                side:
+                    THREE.BackSide
+
+            });
+
+
+        this.glow =
+            new THREE.Mesh(
+
+                glowGeometry,
+
+                glowMaterial
+
+            );
+
+
+        group.add(
+            this.glow
+        );
+
+    }
+
+
+    /* =====================================================
+       ORBITAL SYSTEM
+       ===================================================== */
+
+    createRings() {
+
+
+        for (
+            let i = 0;
+            i < 7;
+            i++
+        ) {
+
+
+            const radius =
+                1.0 +
+                i * 0.14;
+
+
+            const geometry =
+                new THREE.TorusGeometry(
+
+                    radius,
+
+                    i === 0
+                        ? 0.018
+                        : 0.007,
+
+                    10,
+
+                    160
+
+                );
+
+
+            const material =
+                new THREE.MeshBasicMaterial({
+
+                    color:
+                        i % 3 === 0
+                            ? 0xd4af37
+                            : 0x00e5ff,
+
+                    transparent:
+                        true,
+
+                    opacity:
+                        i === 0
+                            ? 0.9
+                            : 0.35
+
+                });
+
+
+            const ring =
+                new THREE.Mesh(
+
+                    geometry,
+
+                    material
+
+                );
+
+
+            ring.rotation.x =
+                Math.random() *
+                Math.PI;
+
+
+            ring.rotation.y =
+                Math.random() *
+                Math.PI;
+
+
+            ring.rotation.z =
+                Math.random() *
+                Math.PI;
+
+
+            ring.userData.speed =
+
+                (
+                    0.0015 +
+                    Math.random() *
+                    0.004
+                );
+
+
+            this.scene.add(
+                ring
+            );
+
+
+            this.rings.push(
+                ring
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PARTICLE FIELD
+       ===================================================== */
+
+    createParticles() {
+
+
+        const mobile =
+            window.innerWidth < 700;
+
+
+        const count =
+            mobile
+                ? 900
+                : 1800;
+
+
+        const positions =
+            new Float32Array(
+
+                count * 3
+
+            );
+
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
+
+
+            const radius =
+                1.5 +
+                Math.random() * 4;
+
+
+            const angle =
+                Math.random() *
+                Math.PI *
+                2;
+
+
+            const vertical =
+                (
+                    Math.random() -
+                    0.5
+                ) * 5;
+
+
+            positions[
+                i * 3
+            ] =
+                Math.cos(angle) *
+                radius;
+
+
+            positions[
+                i * 3 + 1
+            ] =
+                vertical;
+
+
+            positions[
+                i * 3 + 2
+            ] =
+                Math.sin(angle) *
+                radius;
+
+        }
+
+
+        const geometry =
+            new THREE.BufferGeometry();
+
+
+        geometry.setAttribute(
+
+            "position",
+
+            new THREE.BufferAttribute(
+
+                positions,
+
+                3
+
+            )
+
+        );
+
+
+        const material =
+            new THREE.PointsMaterial({
+
+                color:
+                    0x00e5ff,
+
+                size:
+                    mobile
+                        ? 0.018
+                        : 0.022,
+
+                transparent:
+                    true,
+
+                opacity:
+                    0.65,
+
+                depthWrite:
+                    false,
+
+                blending:
+                    THREE.AdditiveBlending
+
+            });
+
+
+        this.particles =
+            new THREE.Points(
+
+                geometry,
+
+                material
+
+            );
+
+
+        this.scene.add(
+            this.particles
+        );
+
+    }
+
+
+    /* =====================================================
+       EVENTS
+       ===================================================== */
+
+    addEvents() {
+
+        this.resizeHandler =
+            () => {
+
+                this.resize();
+
+            };
+
+
+        window.addEventListener(
+
+            "resize",
+
+            this.resizeHandler
+
+        );
+
+    }
+
+
+    /* =====================================================
+       RESIZE
+       ===================================================== */
+
+    resize() {
+
+        if (!this.camera)
+            return;
+
+
+        this.camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+
+        this.camera.updateProjectionMatrix();
+
+
+        this.renderer.setSize(
+
+            window.innerWidth,
+
+            window.innerHeight,
+
+            false
+
+        );
+
+    }
+
+
+    /* =====================================================
+       STATUS
+       ===================================================== */
+
+    setStatus(text) {
+
+        if (
+            this.statusElement
+        ) {
+
+            this.statusElement
+                .textContent =
+                text;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ANIMATION
+       ===================================================== */
+
+    animate() {
+
+        if (!this.active)
+            return;
+
+
+        this.animationID =
+            requestAnimationFrame(
+
+                () =>
+                    this.animate()
+
+            );
+
+
+        const time =
+            this.clock.getElapsedTime();
+
+
+        /* ---------------------------------------------
+           CORE ROTATION
+           --------------------------------------------- */
+
+        if (this.core) {
+
+            this.core.rotation.x =
+                time * 0.25;
+
+            this.core.rotation.y =
+                time * 0.4;
+
+            this.core.rotation.z =
+                Math.sin(time * 0.4)
+                * 0.15;
+
+        }
+
+
+        /* ---------------------------------------------
+           CORE PULSE
+           --------------------------------------------- */
+
+        if (this.nucleus) {
+
+            const pulse =
+                1 +
+                Math.sin(
+                    time * 3.5
+                ) * 0.13;
+
+
+            this.nucleus.scale
+                .setScalar(
+                    pulse
+                );
+
+        }
+
+
+        /* ---------------------------------------------
+           GLOW
+           --------------------------------------------- */
+
+        if (this.glow) {
+
+            const glowPulse =
+                1 +
+                Math.sin(
+                    time * 2
+                ) * 0.1;
+
+
+            this.glow.scale
+                .setScalar(
+                    glowPulse
+                );
+
+        }
+
+
+        /* ---------------------------------------------
+           ORBITS
+           --------------------------------------------- */
+
+        this.rings.forEach(
+
+            (ring, index) => {
+
+                ring.rotation.x +=
+                    ring.userData.speed *
+                    (index + 1);
+
+
+                ring.rotation.y +=
+                    ring.userData.speed *
+                    0.7 *
+                    (index + 1);
+
+            }
+
+        );
+
+
+        /* ---------------------------------------------
+           PARTICLES
+           --------------------------------------------- */
+
+        if (this.particles) {
+
+            this.particles.rotation.y =
+                time * 0.018;
+
+
+            this.particles.rotation.x =
+                Math.sin(time * 0.15)
+                * 0.08;
+
+        }
+
+
+        /* ---------------------------------------------
+           CAMERA MICRO MOVEMENT
+           --------------------------------------------- */
+
+        this.camera.position.x =
+            Math.sin(
+                time * 0.18
+            ) * 0.08;
+
+
+        this.camera.position.y =
+            Math.cos(
+                time * 0.14
+            ) * 0.05;
+
+
+        this.camera.lookAt(
+            0,
+            0,
+            0
+        );
+
+
+        /* ---------------------------------------------
+           RENDER
+           --------------------------------------------- */
+
+        this.renderer.render(
+
+            this.scene,
+
+            this.camera
+
+        );
+
+    }
+
+
+    /* =====================================================
+       STOP
+       ===================================================== */
+
+    stop() {
+
+        if (!this.active)
+            return;
+
+
+        this.active = false;
+
+
+        if (this.animationID) {
+
+            cancelAnimationFrame(
+                this.animationID
+            );
+
+        }
+
+
+        window.removeEventListener(
+
+            "resize",
+
+            this.resizeHandler
+
+        );
+
+
+        if (this.renderer) {
+
+            this.renderer.dispose();
+
+        }
+
+
+        if (this.container) {
+
+            this.container.remove();
+
+        }
+
+
+        this.scene = null;
+
+        this.camera = null;
+
+        this.renderer = null;
+
+        this.core = null;
+
+        this.nucleus = null;
+
+        this.glow = null;
+
+        this.rings = [];
+
+        this.particles = null;
+
+    }
+
+}
+
+
+/* =========================================================
+   GLOBAL VALE CORE
+   ========================================================= */
+
+window.VALECore =
+    new VALECore3D();
