@@ -17,7 +17,9 @@ async function wakeVALE() {
 
     try {
 
-        console.log("Waking VALE backend...");
+        console.log(
+            "Waking VALE backend..."
+        );
 
         await fetch(
             `${API_URL}/health`,
@@ -27,7 +29,9 @@ async function wakeVALE() {
             }
         );
 
-        console.log("VALE backend is ready.");
+        console.log(
+            "VALE backend is ready."
+        );
 
     } catch (error) {
 
@@ -38,6 +42,10 @@ async function wakeVALE() {
     }
 
 }
+
+
+// Start waking backend
+// immediately when login page opens
 
 wakeVALE();
 
@@ -77,43 +85,6 @@ loginForm.addEventListener(
         }
 
 
-        // ==========================
-        // PREVENT DOUBLE CLICK
-        // ==========================
-
-        const loginButton =
-            loginForm.querySelector(
-                'button[type="submit"]'
-            );
-
-
-        if (loginButton) {
-
-            loginButton.disabled = true;
-
-            loginButton.textContent =
-                "Connecting...";
-
-        }
-
-
-        // ==========================
-        // START VALE 3D CORE
-        // ==========================
-
-        if (
-            window.VALECore
-        ) {
-
-            window.VALECore.start();
-
-            window.VALECore.setStatus(
-                "AUTHENTICATING USER"
-            );
-
-        }
-
-
         try {
 
             const response =
@@ -124,22 +95,19 @@ loginForm.addEventListener(
                         method: "POST",
 
                         headers: {
-
                             "Content-Type":
                                 "application/json"
-
                         },
 
-                        body:
-                            JSON.stringify({
+                        body: JSON.stringify({
 
-                                username:
-                                    username,
+                            username:
+                                username,
 
-                                password:
-                                    password
+                            password:
+                                password
 
-                            })
+                        })
 
                     }
                 );
@@ -149,24 +117,7 @@ loginForm.addEventListener(
                 await response.json();
 
 
-            // ==========================
-            // LOGIN SUCCESS
-            // ==========================
-
-            if (
-                data.success
-            ) {
-
-                if (
-                    window.VALECore
-                ) {
-
-                    window.VALECore.setStatus(
-                        "ACCESS GRANTED"
-                    );
-
-                }
-
+            if (data.success) {
 
                 localStorage.setItem(
                     "vale_token",
@@ -174,83 +125,26 @@ loginForm.addEventListener(
                 );
 
 
-                // Give the Core a tiny
-                // moment to show success
+                window.location.href =
+                    "index.html";
 
-                setTimeout(
-                    () => {
 
-                        window.location.href =
-                            "index.html";
+            } else {
 
-                    },
-                    700
+                alert(
+                    data.message ||
+                    "Invalid username or password."
                 );
 
-
-                return;
-
             }
 
 
-            // ==========================
-            // LOGIN FAILED
-            // ==========================
-
-            if (
-                window.VALECore
-            ) {
-
-                window.VALECore.stop();
-
-            }
-
-
-            if (loginButton) {
-
-                loginButton.disabled =
-                    false;
-
-                loginButton.textContent =
-                    "Login";
-
-            }
-
-
-            alert(
-                data.message ||
-                "Invalid username or password."
-            );
-
-        }
-
-
-        catch (error) {
+        } catch (error) {
 
             console.error(
                 "VALE login error:",
                 error
             );
-
-
-            if (
-                window.VALECore
-            ) {
-
-                window.VALECore.stop();
-
-            }
-
-
-            if (loginButton) {
-
-                loginButton.disabled =
-                    false;
-
-                loginButton.textContent =
-                    "Login";
-
-            }
 
 
             alert(
