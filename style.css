@@ -1,2934 +1,2031 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =========================================================
+   VALE AI — MASTER DESIGN SYSTEM
+   MAIN DESIGN / CLEAN FOUNDATION
+   Version: 1.0
+========================================================= */
+
+
+/* =========================================================
+   01 — GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-:root{
-
-    --void:#020102;
-    --velvet:#13040b;
-    --maroon:#300918;
-
-    --gold:#D4AF37;
-    --gold-light:#F8E7A0;
-
-    --cyan:#00E5FF;
-    --text:#eeeeee;
-
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: "Inter", Arial, sans-serif;
 
+    min-height: 100vh;
 
-body{
-
-    font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
+    color: #ffffff;
 
     background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(95, 18, 55, 0.45),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 80% 80%,
+            rgba(212, 175, 55, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #010101,
+            #13040b,
+            #020102
+        );
 
-    radial-gradient(
-    ellipse at 15% 20%,
-    rgba(95,18,55,.45),
-    transparent 40%
-    ),
-
-    radial-gradient(
-    ellipse at 80% 80%,
-    rgba(212,175,55,.12),
-    transparent 35%
-    ),
-
-    linear-gradient(
-    135deg,
-    #010101,
-    #13040b,
-    #020102
-    );
-
-
-    color:white;
-
-    min-height:100vh;
-
+    overflow-x: hidden;
 }
 
 
+/* =========================================================
+   02 — VALE DESIGN VARIABLES
+========================================================= */
 
-/* TOP BAR */
+:root {
+
+    --vale-void: #020102;
+    --vale-velvet: #13040b;
+    --vale-maroon: #300918;
+
+    --vale-gold: #D4AF37;
+    --vale-gold-light: #F8E7A0;
+    --vale-gold-white: #FFF6D2;
+
+    --vale-cyan: #00E5FF;
+    --vale-blue: #008CFF;
+
+    --vale-green: #00FF99;
+
+    --vale-text: #EEEEEE;
+    --vale-muted: #AAAAAA;
+    --vale-dim: #777777;
+
+    --glass-light: rgba(255, 255, 255, 0.04);
+    --glass-dark: rgba(0, 0, 0, 0.45);
+
+    --gold-border: rgba(212, 175, 55, 0.25);
+    --cyan-border: rgba(0, 229, 255, 0.20);
+
+    --glass-blur: blur(25px);
+
+    --radius-small: 15px;
+    --radius-medium: 25px;
+    --radius-large: 35px;
+
+    --transition-fast: 0.25s ease;
+    --transition-normal: 0.4s ease;
+}
 
 
-.topbar{
+/* =========================================================
+   03 — COMMON ELEMENTS
+========================================================= */
 
-    height:95px;
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-    padding:0 8%;
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
 
 
-    display:flex;
+/* =========================================================
+   04 — TOP NAVIGATION
+========================================================= */
 
-    align-items:center;
+.topbar {
 
-    justify-content:space-between;
+    min-height: 95px;
 
+    padding: 15px 8%;
 
-    background:
+    display: flex;
 
-    rgba(8,2,7,.75);
+    align-items: center;
 
+    justify-content: space-between;
 
-    backdrop-filter:blur(25px);
+    gap: 25px;
 
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(8, 2, 7, 0.78);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
 
     border-bottom:
-
-    1px solid rgba(212,175,55,.2);
-
+        1px solid rgba(212, 175, 55, 0.20);
 }
 
 
+/* =========================================================
+   05 — BRAND
+========================================================= */
 
+.brand {
 
-/* BRAND */
+    display: flex;
 
+    align-items: center;
 
-.brand{
+    gap: 18px;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
+    flex-shrink: 0;
 }
 
 
+/* =========================================================
+   06 — VALE LOGO CONTAINER
+========================================================= */
 
+.vale-symbol {
 
-.vale-symbol{
+    width: 72px;
+    height: 72px;
 
-    width:72px;
-    height:72px;
+    display: flex;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    align-items: center;
+    justify-content: center;
 
-    border-radius:22px;
+    position: relative;
+
+    flex-shrink: 0;
+
+    border-radius: 22px;
 
     background:
-    linear-gradient(
-        145deg,
-        rgba(255,240,190,.95),
-        #D4AF37 45%,
-        #8A6518 100%
-    );
+        linear-gradient(
+            145deg,
+            rgba(255, 240, 190, 0.95),
+            #D4AF37 45%,
+            #8A6518 100%
+        );
 
-    border:1px solid rgba(255,245,210,.35);
+    border:
+        1px solid rgba(255, 245, 210, 0.35);
 
     box-shadow:
-        0 0 10px rgba(212,175,55,.35),
-        0 0 25px rgba(212,175,55,.25),
-        0 15px 35px rgba(0,0,0,.45),
-        inset 0 2px 4px rgba(255,255,255,.45),
-        inset 0 -8px 18px rgba(90,60,5,.35);
+        0 0 10px rgba(212, 175, 55, 0.35),
+        0 0 25px rgba(212, 175, 55, 0.25),
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        inset 0 2px 4px rgba(255, 255, 255, 0.45),
+        inset 0 -8px 18px rgba(90, 60, 5, 0.35);
 
-    backdrop-filter:blur(15px);
-
-    transition:.45s ease;
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
 }
 
 
-.vale-symbol svg{
-
-    width:58px;
-    height:58px;
-
-    filter:
-        drop-shadow(0 0 10px rgba(255,255,255,.25))
-        drop-shadow(0 0 18px rgba(0,229,255,.35));
-        
-
-}
-
-
-
-.brand-name h2{
-
-    font-size:32px;
-
-    font-weight:900;
-
-    letter-spacing:6px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #FFF6D2,
-        #F3D16F,
-        #D4AF37,
-        #00E5FF
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-    text-shadow:
-        0 0 20px rgba(212,175,55,.18);
-
-}
-
-
-.brand-name span{
-
-
-    font-size:12px;
-
-
-    letter-spacing:4px;
-
-
-    color:#aaa;
-
-
-}
-
-
-.vale-symbol:hover{
+.vale-symbol:hover {
 
     transform:
         translateY(-4px)
-        scale(1.05)
-        rotate(-3deg);
+        scale(1.04)
+        rotate(-2deg);
 
     box-shadow:
-        0 0 20px rgba(212,175,55,.6),
-        0 0 50px rgba(0,229,255,.35),
-        0 25px 50px rgba(0,0,0,.55),
-        inset 0 2px 6px rgba(255,255,255,.5);
-
+        0 0 20px rgba(212, 175, 55, 0.6),
+        0 0 50px rgba(0, 229, 255, 0.35),
+        0 25px 50px rgba(0, 0, 0, 0.55);
 }
 
 
+.vale-symbol svg {
 
+    width: 58px;
+    height: 58px;
 
-/* NAV */
-
-
-nav{
-
-    display:flex;
-
-    gap:35px;
-
+    filter:
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.25))
+        drop-shadow(0 0 18px rgba(0, 229, 255, 0.35));
 }
 
 
+/* =========================================================
+   07 — BRAND TEXT
+========================================================= */
 
-nav a{
+.brand-name h2 {
 
+    font-size: 32px;
 
-    color:#ccc;
+    font-weight: 900;
 
-
-    cursor:pointer;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-nav a:hover{
-
-
-    color:var(--gold);
-
-}
-
-
-
-
-
-/* HERO */
-
-
-.hero{
-
-
-    min-height:90vh;
-
-
-    padding:80px 8%;
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:space-between;
-
-
-    gap:60px;
-
-
-}
-
-
-
-
-
-.hero-content{
-
-
-    max-width:650px;
-
-
-}
-
-
-
-
-.tag{
-
-
-    color:var(--cyan);
-
-
-    letter-spacing:4px;
-
-
-    font-size:13px;
-
-
-    margin-bottom:25px;
-
-
-}
-
-
-
-
-.hero h1{
-
-
-    font-size:85px;
-
-
-    line-height:1;
-
-
-}
-
-
-
-.hero h1 span{
-
-
-    display:block;
-
+    letter-spacing: 6px;
 
     background:
+        linear-gradient(
+            90deg,
+            #FFF6D2,
+            #F3D16F,
+            #D4AF37,
+            #00E5FF
+        );
 
-    linear-gradient(
-    90deg,
-    var(--gold),
-    var(--gold-light),
-    var(--cyan)
-    );
+    -webkit-background-clip: text;
+    background-clip: text;
 
+    color: transparent;
 
-    -webkit-background-clip:text;
-
-
-    color:transparent;
-
-
+    text-shadow:
+        0 0 20px rgba(212, 175, 55, 0.18);
 }
 
 
+.brand-name span {
 
+    display: block;
 
-.hero p{
+    margin-top: 3px;
 
+    font-size: 12px;
 
-    margin-top:35px;
+    letter-spacing: 4px;
 
-
-    color:#bdbdbd;
-
-
-    font-size:21px;
-
-
-    line-height:1.8;
-
-
+    color: #AAAAAA;
 }
 
 
+/* =========================================================
+   08 — NAV MENU
+========================================================= */
+
+nav,
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+}
 
 
-
-button{
-
-
-    margin-top:40px;
-
-
-    padding:18px 55px;
+nav::-webkit-scrollbar,
+.nav-menu::-webkit-scrollbar {
+    display: none;
+}
 
 
-    border:none;
+nav a,
+.nav-menu a {
+
+    flex: 0 0 auto;
+
+    padding: 10px 16px;
+
+    color: #CCCCCC;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition:
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
 
 
-    border-radius:50px;
+nav a:hover,
+.nav-menu a:hover {
+
+    color: var(--vale-cyan);
+
+    transform: translateY(-2px);
+}
 
 
-    font-weight:800;
+/* =========================================================
+   09 — HERO
+========================================================= */
 
+.hero {
+
+    min-height: 90vh;
+
+    padding: 80px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+
+.hero-content {
+    max-width: 650px;
+}
+
+
+.tag {
+
+    margin-bottom: 25px;
+
+    color: var(--vale-cyan);
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+}
+
+
+.hero h1 {
+
+    font-size: 85px;
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+.hero h1 span {
+
+    display: block;
 
     background:
+        linear-gradient(
+            90deg,
+            var(--vale-gold),
+            var(--vale-gold-light),
+            var(--vale-cyan)
+        );
 
-    linear-gradient(
-    135deg,
-    var(--gold-light),
-    var(--gold)
-    );
+    -webkit-background-clip: text;
+    background-clip: text;
 
-
-    color:#080808;
-
-
-    cursor:pointer;
-
-
+    color: transparent;
 }
 
 
+.hero p {
+
+    margin-top: 35px;
+
+    color: #BDBDBD;
+
+    font-size: 21px;
+
+    line-height: 1.8;
+}
 
 
+/* =========================================================
+   10 — PRIMARY BUTTON
+========================================================= */
 
-/* INTELLIGENCE PANEL */
+button {
 
+    border: none;
 
-.intelligence-panel{
+    border-radius: 50px;
 
+    padding: 16px 35px;
 
-    width:430px;
-
-
-    padding:35px;
-
-
-    border-radius:35px;
-
+    font-weight: 800;
 
     background:
+        linear-gradient(
+            135deg,
+            var(--vale-gold-light),
+            var(--vale-gold)
+        );
 
-    linear-gradient(
-    145deg,
-    rgba(48,9,24,.65),
-    rgba(2,2,3,.85)
-    );
+    color: #080808;
 
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(212, 175, 55, 0.25);
+}
+
+
+.hero button {
+    margin-top: 40px;
+}
+
+
+/* =========================================================
+   11 — INTELLIGENCE PANEL
+========================================================= */
+
+.intelligence-panel {
+
+    width: 430px;
+
+    padding: 35px;
+
+    border-radius: var(--radius-large);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 9, 24, 0.65),
+            rgba(2, 2, 3, 0.85)
+        );
 
     border:
+        1px solid var(--gold-border);
 
-    1px solid rgba(212,175,55,.3);
-
-
-    backdrop-filter:blur(30px);
-
-
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
 }
 
 
+.panel-top {
 
+    display: flex;
 
-.panel-top{
+    align-items: center;
 
+    justify-content: space-between;
 
-    display:flex;
+    color: var(--vale-gold-light);
 
-    justify-content:space-between;
-
-
-    color:var(--gold-light);
-
-
-    font-size:22px;
-
-
+    font-size: 22px;
 }
 
 
+.panel-top span {
 
-.panel-top span{
+    color: var(--vale-green);
 
-
-    color:#00ff9d;
-
-
-    font-size:13px;
-
-
+    font-size: 13px;
 }
 
 
+.signal {
 
+    margin-top: 25px;
 
-.signal{
+    padding: 20px;
 
+    display: flex;
 
-    margin-top:25px;
+    justify-content: space-between;
 
+    gap: 15px;
 
-    padding:20px;
+    border-radius: 20px;
 
-
-    border-radius:20px;
-
-
-    background:
-
-    rgba(255,255,255,.04);
-
+    background: var(--glass-light);
 
     border:
-
-    1px solid rgba(0,229,255,.15);
-
-
-    display:flex;
-
-
-    justify-content:space-between;
-
-
+        1px solid var(--cyan-border);
 }
 
 
-
-.signal strong{
-
-
-    color:var(--cyan);
-
-
+.signal strong {
+    color: var(--vale-cyan);
 }
 
 
+/* =========================================================
+   12 — ENERGY RING
+========================================================= */
 
+.energy-ring {
 
-.energy-ring{
+    width: 120px;
+    height: 120px;
 
+    margin: 40px auto 10px;
 
-    margin:40px auto 10px;
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
 
-    width:120px;
-
-    height:120px;
-
-
-    border-radius:50%;
-
+    border-radius: 50%;
 
     border:
+        2px solid var(--vale-gold);
 
-    2px solid var(--gold);
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.20);
 }
 
 
+.energy-ring div {
 
-.energy-ring div{
+    width: 60px;
+    height: 60px;
 
-
-    width:60px;
-
-    height:60px;
-
-
-    border-radius:50%;
-
+    border-radius: 50%;
 
     background:
-
-    radial-gradient(
-    circle,
-    var(--cyan),
-    transparent
-    );
-
-
+        radial-gradient(
+            circle,
+            var(--vale-cyan),
+            transparent
+        );
 }
 
 
+/* =========================================================
+   13 — SHARED SECTION TITLES
+========================================================= */
 
+.platform,
+.vision,
+.command,
+.market-space,
+.forge-space,
+.shield-space,
+.core-space,
+.hub-space {
 
-
-
-/* CARDS */
-
-
-.platform{
-
-
-    padding:100px 8%;
-
-
+    padding: 100px 8%;
 }
-
 
 
 .platform h2,
-.vision h2{
+.vision h2 {
 
+    text-align: center;
 
-    text-align:center;
+    margin-bottom: 60px;
 
+    font-size: 50px;
 
-    font-size:50px;
-
-
-    color:var(--gold-light);
-
-
-    margin-bottom:60px;
-
-
+    color: var(--vale-gold-light);
 }
 
 
+/* =========================================================
+   14 — GENERAL CARDS
+========================================================= */
 
+.cards {
 
-.cards{
-
-
-    display:grid;
-
+    display: grid;
 
     grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
 
-    repeat(auto-fit,minmax(260px,1fr));
-
-
-    gap:30px;
-
-
+    gap: 30px;
 }
 
 
+.card {
 
+    padding: 40px;
 
-.card{
+    border-radius: 30px;
 
-
-    padding:40px;
-
-
-    border-radius:30px;
-
-
-    background:
-
-    rgba(255,255,255,.04);
-
+    background: var(--glass-light);
 
     border:
+        1px solid var(--gold-border);
 
-    1px solid rgba(212,175,55,.2);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
 
-
-    backdrop-filter:blur(25px);
-
-
-    transition:.4s;
-
-
-}
-
-
-
-
-.card:hover{
-
-
-    transform:translateY(-12px);
-
-
-    border-color:var(--cyan);
-
-
-}
-
-
-
-.card h3{
-
-
-    color:var(--cyan);
-
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-.card p{
-
-
-    color:#aaa;
-
-
-}
-
-
-
-
-
-/* VISION */
-
-
-.vision{
-
-
-    padding:100px 10%;
-
-
-    text-align:center;
-
-
-}
-
-
-
-.vision p{
-
-
-    color:#aaa;
-
-
-    font-size:22px;
-
-
-}
-
-
-
-
-
-footer{
-
-
-    padding:40px;
-
-
-    text-align:center;
-
-
-    color:#777;
-
-
-    border-top:
-
-    1px solid rgba(212,175,55,.15);
-
-
-}
-
-
-
-
-@media(max-width:900px){
-
-
-nav{
-
-display:none;
-
-}
-
-
-.hero{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-
-.hero h1{
-
-font-size:50px;
-
-}
-
-
-.intelligence-panel{
-
-width:100%;
-
-}
-
-
-}
- 
-/* =========================
-   VALE COMMAND SPACE
-========================= */
-
-
-.command{
-
-    padding:70px 8%;
-
-}
-
-
-
-.welcome{
-
-    margin-bottom:60px;
-
-}
-
-
-
-.welcome p{
-
-    color:#00e5ff;
-
-    letter-spacing:4px;
-
-    font-size:13px;
-
-}
-
-
-
-.welcome h1{
-
-    margin-top:20px;
-
-    font-size:70px;
-
-    line-height:1.1;
-
-    background:
-
-    linear-gradient(
-        90deg,
-        #f6df8b,
-        #d4af37,
-        #00e5ff
-    );
-
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-}
-
-
-
-
-
-.dashboard-grid{
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(280px,1fr));
-
-
-    gap:30px;
-
-
-}
-
-
-
-
-.command-card{
-
-
-    padding:35px;
-
-
-    min-height:220px;
-
-
-    border-radius:30px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(48,9,24,.65),
-        rgba(5,2,8,.85)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.25);
-
-
-    backdrop-filter:blur(25px);
-
-
-    transition:.4s;
-
-
-}
-
-
-
-
-.command-card:hover{
-
-
-    transform:translateY(-10px);
-
-
-    border-color:#00e5ff;
-
-
-    box-shadow:
-
-    0 0 40px rgba(0,229,255,.15);
-
-
-}
-
-
-
-.command-card h3{
-
-
-    color:#f6df8b;
-
-    font-size:22px;
-
-
-}
-
-
-
-
-.command-card .value{
-
-
-    margin-top:35px;
-
-
-    font-size:30px;
-
-
-    font-weight:800;
-
-
-    color:#00e5ff;
-
-
-}
-
-
-
-.command-card p{
-
-
-    margin-top:20px;
-
-
-    color:#aaa;
-
-
-}
-
-
-
-
-/* DECISION LAYER */
-
-
-.decision-panel{
-
-
-    margin-top:70px;
-
-
-    padding:45px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(20,5,15,.9),
-        rgba(0,20,30,.5)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.3);
-
-
-}
-
-
-
-
-.decision-panel h2{
-
-
-    color:#d4af37;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-
-.decision-box{
-
-
-    min-height:160px;
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:center;
-
-
-    color:#888;
-
-
-    font-size:20px;
-
-
-    border-radius:25px;
-
-
-    background:
-
-    rgba(0,0,0,.45);
-
-
-    border:
-
-    1px solid rgba(0,229,255,.2);
-
-
-}
-
-
-
-
-@media(max-width:900px){
-
-
-.welcome h1{
-
-font-size:45px;
-
-}
-
-
-}
- 
-/* ==========================
-   VALE MARKET VISION
-========================== */
-
-
-.market-space{
-
-    padding:70px 8%;
-
-}
-
-
-
-
-.market-title{
-
-    margin-bottom:60px;
-
-}
-
-
-
-.market-title p{
-
-    color:#00e5ff;
-
-    letter-spacing:4px;
-
-    font-size:13px;
-
-}
-
-
-
-.market-title h1{
-
-
-    margin-top:20px;
-
-
-    font-size:75px;
-
-
-    line-height:1.05;
-
-
-    background:
-
-    linear-gradient(
-        90deg,
-        #f6df8b,
-        #d4af37,
-        #00e5ff
-    );
-
-
-    -webkit-background-clip:text;
-
-
-    color:transparent;
-
-
-}
-
-
-
-
-
-
-.market-grid{
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(350px,1fr));
-
-
-    gap:35px;
-
-
-}
-
-
-
-
-
-.market-card{
-
-
-    padding:40px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(48,9,24,.7),
-        rgba(5,2,8,.9)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.25);
-
-
-    backdrop-filter:blur(25px);
-
-
-}
-
-
-
-
-.market-card h3{
-
-
-    color:#f6df8b;
-
-
-    font-size:25px;
-
-
-    margin-bottom:35px;
-
-
-}
-
-
-
-
-
-.asset{
-
-
-    display:flex;
-
-
-    justify-content:space-between;
-
-
-    align-items:center;
-
-
-    padding:20px;
-
-
-    margin-top:15px;
-
-
-    border-radius:20px;
-
-
-    background:
-
-    rgba(0,0,0,.35);
-
-
-    border:
-
-    1px solid rgba(0,229,255,.15);
-
-
-    color:white;
-
-
-}
-
-
-
-.asset span{
-
-
-    color:#00ff99;
-
-
-    font-size:13px;
-
-
-}
-
-
-
-
-
-
-.insight{
-
-
-    padding:22px;
-
-
-    margin-top:18px;
-
-
-    border-radius:20px;
-
-
-    background:
-
-    rgba(255,255,255,.04);
-
-
-    display:flex;
-
-
-    justify-content:space-between;
-
-
-    color:#ccc;
-
-
-}
-
-
-
-
-
-.insight strong{
-
-
-    color:#00e5ff;
-
-
-}
-
-
-
-
-
-
-
-.vision-engine{
-
-
-    margin-top:70px;
-
-
-    padding:45px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(20,5,15,.9),
-        rgba(0,30,40,.5)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.3);
-
-
-}
-
-
-
-
-.vision-engine h2{
-
-
-    color:#d4af37;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-
-
-.report-box{
-
-
-    height:200px;
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:center;
-
-
-    border-radius:25px;
-
-
-    background:
-
-    rgba(0,0,0,.5);
-
-
-    color:#888;
-
-
-    border:
-
-    1px solid rgba(0,229,255,.2);
-
-
-}
-
-
-
-
-@media(max-width:900px){
-
-
-.market-title h1{
-
-font-size:45px;
-
-}
-
-
-.market-grid{
-
-grid-template-columns:1fr;
-
-}
-
-
-}
- 
-/* ==========================
-   VALE STRATEGY FORGE
-========================== */
-
-
-.forge-space{
-
-    padding:70px 8%;
-
-}
-
-
-
-
-.forge-title{
-
-    margin-bottom:60px;
-
-}
-
-
-
-.forge-title p{
-
-    color:#00e5ff;
-
-    letter-spacing:4px;
-
-    font-size:13px;
-
-}
-
-
-
-.forge-title h1{
-
-
-    margin-top:20px;
-
-
-    font-size:80px;
-
-
-    line-height:1;
-
-
-    background:
-
-
-    linear-gradient(
-        90deg,
-        #f6df8b,
-        #d4af37,
-        #00e5ff
-    );
-
-
-    -webkit-background-clip:text;
-
-
-    color:transparent;
-
-
-}
-
-
-
-
-
-.forge-grid{
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(350px,1fr));
-
-
-    gap:35px;
-
-
-}
-
-
-
-
-.forge-card{
-
-
-    padding:40px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(48,9,24,.7),
-        rgba(5,2,8,.9)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.25);
-
-
-    backdrop-filter:blur(25px);
-
-
-}
-
-
-
-
-
-.forge-card h3{
-
-
-    color:#f6df8b;
-
-
-    font-size:26px;
-
-
-    margin-bottom:35px;
-
-
-}
-
-
-
-
-
-
-.forge-box{
-
-
-    padding:22px;
-
-
-    margin-top:18px;
-
-
-    border-radius:20px;
-
-
-    background:
-
-    rgba(0,0,0,.45);
-
-
-    border:
-
-    1px solid rgba(0,229,255,.2);
-
-
-    color:#ccc;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-
-.forge-box:hover{
-
-
-    border-color:#00e5ff;
-
-
-    color:white;
-
-
-    transform:translateX(8px);
-
-
-}
-
-
-
-
-
-
-.simulation{
-
-
-    padding:25px;
-
-
-    margin-top:18px;
-
-
-    border-radius:22px;
-
-
-    background:
-
-
-    rgba(255,255,255,.04);
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:space-between;
-
-
-    border:
-
-    1px solid rgba(212,175,55,.18);
-
-
-}
-
-
-
-
-.simulation h4{
-
-
-    color:#ddd;
-
-
-}
-
-
-
-
-.simulation span{
-
-
-    color:#00ff99;
-
-
-    font-size:13px;
-
-
-}
-
-
-
-
-
-
-
-.forge-result{
-
-
-    margin-top:70px;
-
-
-    padding:45px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(20,5,15,.9),
-        rgba(0,25,35,.5)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.3);
-
-
-}
-
-
-
-
-.forge-result h2{
-
-
-    color:#d4af37;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-
-.result-window{
-
-
-    height:220px;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    border-radius:25px;
-
-
-    background:
-
-    rgba(0,0,0,.55);
-
-
-    border:
-
-    1px solid rgba(0,229,255,.2);
-
-
-    color:#888;
-
-
-}
-
-
-
-
-
-@media(max-width:900px){
-
-
-.forge-title h1{
-
-font-size:50px;
-
-}
-
-
-.forge-grid{
-
-grid-template-columns:1fr;
-
-}
-
-
-}
-
-/* ==========================
-   VALE CAPITAL SHIELD
-========================== */
-
-
-.shield-space{
-
-    padding:70px 8%;
-
-}
-
-
-
-
-.shield-title{
-
-    margin-bottom:60px;
-
-}
-
-
-
-.shield-title p{
-
-    color:#00e5ff;
-
-    letter-spacing:4px;
-
-    font-size:13px;
-
-}
-
-
-
-.shield-title h1{
-
-
-    margin-top:20px;
-
-
-    font-size:80px;
-
-
-    line-height:1;
-
-
-    background:
-
-
-    linear-gradient(
-        90deg,
-        #f6df8b,
-        #d4af37,
-        #00e5ff
-    );
-
-
-    -webkit-background-clip:text;
-
-
-    color:transparent;
-
-
-}
-
-
-
-
-
-
-.shield-grid{
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(350px,1fr));
-
-
-    gap:35px;
-
-
-}
-
-
-
-
-.shield-card{
-
-
-    padding:40px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(48,9,24,.75),
-        rgba(5,2,8,.9)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.25);
-
-
-    backdrop-filter:blur(25px);
-
-
-}
-
-
-
-
-.shield-card h3{
-
-
-    color:#f6df8b;
-
-
-    font-size:26px;
-
-
-    margin-bottom:35px;
-
-
-}
-
-
-
-
-
-
-
-.shield-status{
-
-
-    display:flex;
-
-
-    justify-content:space-between;
-
-
-    padding:22px;
-
-
-    margin-top:18px;
-
-
-    border-radius:20px;
-
-
-    background:
-
-
-    rgba(0,0,0,.45);
-
-
-    border:
-
-    1px solid rgba(0,229,255,.18);
-
-
-    color:#ccc;
-
-
-}
-
-
-
-
-.shield-status strong{
-
-
-    color:#00e5ff;
-
-
-    font-size:13px;
-
-
-}
-
-
-
-
-
-/* GUARDIAN CORE */
-
-
-.core-circle{
-
-
-    width:220px;
-
-
-    height:220px;
-
-
-    margin:20px auto;
-
-
-    border-radius:50%;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    text-align:center;
-
-
-    font-weight:800;
-
-
-    color:#f6df8b;
-
-
-    border:
-
-    2px solid #d4af37;
-
-
-    background:
-
-
-    radial-gradient(
-        circle,
-        rgba(0,229,255,.15),
-        rgba(0,0,0,.8)
-    );
-
-
-    box-shadow:
-
-
-    0 0 50px rgba(212,175,55,.25);
-
-
-}
-
-
-
-
-
-.shield-report{
-
-
-    margin-top:70px;
-
-
-    padding:45px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    linear-gradient(
-        145deg,
-        rgba(20,5,15,.9),
-        rgba(0,25,35,.5)
-    );
-
-
-    border:
-
-    1px solid rgba(212,175,55,.3);
-
-
-}
-
-
-
-
-
-.shield-report h2{
-
-
-    color:#d4af37;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-
-.shield-window{
-
-
-    height:220px;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    border-radius:25px;
-
-
-    background:
-
-
-    rgba(0,0,0,.55);
-
-
-    border:
-
-    1px solid rgba(0,229,255,.2);
-
-
-    color:#888;
-
-
-}
-
-
-
-
-
-@media(max-width:900px){
-
-
-.shield-title h1{
-
-font-size:50px;
-
-}
-
-
-.shield-grid{
-
-grid-template-columns:1fr;
-
-}
-
-
-}
-
-/* ==========================
-   VALE AI CORE
-========================== */
-
-.core-space{
-    padding:70px 8%;
-}
-
-.core-title{
-    text-align:center;
-    margin-bottom:70px;
-}
-
-.core-title p{
-    color:#00e5ff;
-    letter-spacing:4px;
-    font-size:13px;
-}
-
-.core-title h1{
-    margin-top:20px;
-    font-size:80px;
-    line-height:1;
-    background:linear-gradient(90deg,#f6df8b,#d4af37,#00e5ff);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-/* ==========================
-   AI NETWORK
-========================== */
-
-.core-network{
-
-    position:relative;
-
-    width:100%;
-
-    max-width:1000px;
-
-    height:850px;
-
-    margin:0 auto;
-
-}
-
-.core-orb{
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:300px;
-
-    height:300px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:radial-gradient(circle,
-    rgba(0,229,255,.20),
-    rgba(10,5,15,.95));
-
-    border:2px solid #d4af37;
-
-    box-shadow:
-    0 0 50px rgba(0,229,255,.30),
-    0 0 90px rgba(212,175,55,.25);
-
-    animation:corePulse 4s ease-in-out infinite;
-
-    z-index:10;
-
-}
-
-.inner-core{
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#050509;
-
-    border:1px solid rgba(212,175,55,.4);
-
-    color:#f6df8b;
-
-    font-size:42px;
-
-    font-weight:900;
-
-    letter-spacing:5px;
-
-}
-
-.ai-node{
-
-    position:absolute;
-
-    min-width:220px;
-
-    padding:18px 25px;
-
-    text-align:center;
-
-    border-radius:20px;
-
-    color:#00e5ff;
-
-    background:linear-gradient(
-    145deg,
-    rgba(48,9,24,.85),
-    rgba(0,0,0,.92));
-
-    border:1px solid rgba(212,175,55,.30);
-
-    backdrop-filter:blur(18px);
-
-    z-index:2;
-
-}
-
-.node-one{
-
-    top:40px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-.node-two{
-
-    right:40px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-}
-
-.node-three{
-
-    bottom:40px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-}
-
-.node-four{
-
-    left:40px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-}
-
-/* ==========================
-   STATUS
-========================== */
-
-.core-status{
-
-    margin-top:60px;
-
-    padding:45px;
-
-    border-radius:35px;
-
-    background:linear-gradient(
-    145deg,
-    rgba(20,5,15,.92),
-    rgba(0,25,35,.55));
-
-    border:1px solid rgba(212,175,55,.30);
-
-}
-
-.core-status h2{
-
-    color:#d4af37;
-
-    margin-bottom:25px;
-
-}
-
-.status-window{
-
-    height:180px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:25px;
-
-    background:rgba(0,0,0,.55);
-
-    border:1px solid rgba(0,229,255,.25);
-
-    color:#888;
-
-}
-
-@keyframes corePulse{
-
-    0%{
-        transform:translate(-50%,-50%) scale(1);
-    }
-
-    50%{
-        transform:translate(-50%,-50%) scale(1.05);
-    }
-
-    100%{
-        transform:translate(-50%,-50%) scale(1);
-    }
-
-}
-
-@media(max-width:900px){
-
-    .core-title h1{
-        font-size:48px;
-    }
-
-    .core-network{
-        height:900px;
-    }
-
-    .core-orb{
-        width:240px;
-        height:240px;
-    }
-
-    .inner-core{
-        width:150px;
-        height:150px;
-        font-size:32px;
-    }
-
-    .ai-node{
-        min-width:170px;
-        padding:14px 18px;
-        font-size:14px;
-    }
-
-    .node-one{
-        top:20px;
-        left:50%;
-        transform:translateX(-50%);
-    }
-
-    .node-two{
-        right:10px;
-        top:220px;
-        transform:none;
-    }
-
-    .node-three{
-        bottom:20px;
-        left:50%;
-        transform:translateX(-50%);
-    }
-
-    .node-four{
-        left:10px;
-        top:220px;
-        transform:none;
-    }
-
-}
-/* ==========================
-   VALE INTELLIGENCE HUB
-========================== */
-
-.hub-space{
-    padding:70px 8%;
-}
-
-.hub-title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.hub-title p{
-    color:#00e5ff;
-    letter-spacing:4px;
-    font-size:13px;
-}
-
-.hub-title h1{
-    margin-top:20px;
-    font-size:72px;
-    line-height:1.1;
-    background:linear-gradient(90deg,#f6df8b,#d4af37,#00e5ff);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.hub-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-}
-
-.hub-card{
-
-    padding:35px;
-
-    border-radius:28px;
-
-    background:linear-gradient(
-    145deg,
-    rgba(48,9,24,.85),
-    rgba(0,0,0,.92));
-
-    border:1px solid rgba(212,175,55,.25);
-
-    transition:.35s;
-
-}
-
-.hub-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#00e5ff;
-
-    box-shadow:
-    0 20px 40px rgba(0,229,255,.15);
-
-}
-
-.hub-card h3{
-
-    color:#f6df8b;
-
-    margin-bottom:18px;
-
-    font-size:24px;
-
-}
-
-.hub-card p{
-
-    color:#bfbfbf;
-
-    line-height:1.7;
-
-}
-
-@media(max-width:900px){
-
-    .hub-title h1{
-
-        font-size:44px;
-
-    }
-
-}
-/* ==========================
-   VALE NAVIGATION
-========================== */
-
-.topbar{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px 8%;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    backdrop-filter:blur(18px);
-
-    background:rgba(10,5,15,.65);
-
-    border-bottom:1px solid rgba(212,175,55,.15);
-
+    transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal);
 }
-
-.nav-menu{
-
-    display:flex;
-    flex-wrap:nowrap;
-    align-items:center;
-    justify-content:flex-start;
-
-    width:100%;
-
-    overflow-x:auto;
-    overflow-y:hidden;
-
-    white-space:nowrap;
-
-    gap:20px;
-
-    padding:12px 12px;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
 
-}
 
-.nav-menu::-webkit-scrollbar{
+.card:hover {
 
-    display:none;
+    transform: translateY(-12px);
 
+    border-color: var(--vale-cyan);
 }
-
-.nav-menu a{
-
-    flex:0 0 auto;
-
-    padding:10px 16px;
-
-    text-decoration:none;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    color:#d7d7d7;
 
-    transition:.3s;
 
-}
-
-.nav-menu a:hover{
+.card h3 {
 
-    color:#00e5ff;
+    margin-bottom: 15px;
 
+    color: var(--vale-cyan);
 }
-
-
 
 
-@media(max-width:900px){
-
-    .topbar{
-
-        flex-direction:column;
-height:auto;
-padding:20px 5%;
-
+.card p {
+    color: var(--vale-muted);
 }
 
-    .nav-menu{
 
-        justify-content:flex-start;
+/* =========================================================
+   15 — VISION
+========================================================= */
 
-    }
-
-}
-.vale-chat {
-    margin: 50px auto;
-    padding: 30px;
-    max-width: 600px;
-    border-radius: 20px;
+.vision {
     text-align: center;
 }
 
-#chatBox {
-    min-height: 150px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
+
+.vision p {
+
+    color: var(--vale-muted);
+
+    font-size: 22px;
+
+    line-height: 1.7;
 }
 
-#userInput {
-    width: 70%;
-    padding: 12px;
-    border-radius: 10px;
+
+/* =========================================================
+   16 — COMMAND SPACE
+========================================================= */
+
+.welcome {
+    margin-bottom: 60px;
 }
+
+
+.welcome p {
+
+    color: var(--vale-cyan);
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+}
+
+
+.welcome h1 {
+
+    margin-top: 20px;
+
+    font-size: 70px;
+
+    line-height: 1.1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #F6DF8B,
+            #D4AF37,
+            #00E5FF
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+
+.command-card {
+
+    min-height: 220px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 9, 24, 0.65),
+            rgba(5, 2, 8, 0.85)
+        );
+
+    border:
+        1px solid var(--gold-border);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    transition: var(--transition-normal);
+}
+
+
+.command-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: var(--vale-cyan);
+
+    box-shadow:
+        0 0 40px rgba(0, 229, 255, 0.15);
+}
+
+
+.command-card h3 {
+    color: var(--vale-gold-light);
+}
+
+
+.command-card .value {
+
+    margin-top: 35px;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: var(--vale-cyan);
+}
+
+
+.command-card p {
+
+    margin-top: 20px;
+
+    color: var(--vale-muted);
+}
+
+
+/* =========================================================
+   17 — DECISION LAYER
+========================================================= */
+
+.decision-panel,
+.vision-engine,
+.forge-result,
+.shield-report,
+.core-status {
+
+    margin-top: 70px;
+
+    padding: 45px;
+
+    border-radius: var(--radius-large);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 5, 15, 0.90),
+            rgba(0, 25, 35, 0.50)
+        );
+
+    border:
+        1px solid rgba(212, 175, 55, 0.30);
+}
+
+
+.decision-panel h2,
+.vision-engine h2,
+.forge-result h2,
+.shield-report h2,
+.core-status h2 {
+
+    margin-bottom: 30px;
+
+    color: var(--vale-gold);
+}
+
+
+.decision-box,
+.report-box,
+.result-window,
+.shield-window,
+.status-window {
+
+    min-height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 25px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border:
+        1px solid var(--cyan-border);
+
+    color: #888;
+}
+
+
+/* =========================================================
+   18 — MARKET VISION
+========================================================= */
+
+.market-title,
+.forge-title,
+.shield-title {
+
+    margin-bottom: 60px;
+}
+
+
+.market-title p,
+.forge-title p,
+.shield-title p {
+
+    color: var(--vale-cyan);
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+}
+
+
+.market-title h1,
+.forge-title h1,
+.shield-title h1 {
+
+    margin-top: 20px;
+
+    font-size: 80px;
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #F6DF8B,
+            #D4AF37,
+            #00E5FF
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.market-grid,
+.forge-grid,
+.shield-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(350px, 1fr));
+
+    gap: 35px;
+}
+
+
+.market-card,
+.forge-card,
+.shield-card {
+
+    padding: 40px;
+
+    border-radius: var(--radius-large);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 9, 24, 0.70),
+            rgba(5, 2, 8, 0.90)
+        );
+
+    border:
+        1px solid var(--gold-border);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+
+.market-card h3,
+.forge-card h3,
+.shield-card h3 {
+
+    margin-bottom: 35px;
+
+    color: var(--vale-gold-light);
+
+    font-size: 26px;
+}
+
+
+/* =========================================================
+   19 — MARKET ASSETS
+========================================================= */
+
+.asset,
+.insight {
+
+    margin-top: 15px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border:
+        1px solid var(--cyan-border);
+}
+
+
+.asset {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.asset span {
+    color: var(--vale-green);
+}
+
+
+.insight {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #CCC;
+}
+
+
+.insight strong {
+    color: var(--vale-cyan);
+}
+
+
+/* =========================================================
+   20 — STRATEGY FORGE
+========================================================= */
+
+.forge-box {
+
+    padding: 22px;
+
+    margin-top: 18px;
+
+    border-radius: 20px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border:
+        1px solid var(--cyan-border);
+
+    color: #CCC;
+
+    transition: var(--transition-fast);
+}
+
+
+.forge-box:hover {
+
+    border-color: var(--vale-cyan);
+
+    color: white;
+
+    transform: translateX(8px);
+}
+
+
+.simulation {
+
+    margin-top: 18px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-radius: 22px;
+
+    background: var(--glass-light);
+
+    border:
+        1px solid rgba(212, 175, 55, 0.18);
+}
+
+
+.simulation h4 {
+    color: #DDD;
+}
+
+
+.simulation span {
+    color: var(--vale-green);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   21 — CAPITAL SHIELD
+========================================================= */
+
+.shield-status {
+
+    margin-top: 18px;
+
+    padding: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-radius: 20px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border:
+        1px solid rgba(0, 229, 255, 0.18);
+
+    color: #CCC;
+}
+
+
+.shield-status strong {
+    color: var(--vale-cyan);
+
+    font-size: 13px;
+}
+
+
+.core-circle {
+
+    width: 220px;
+    height: 220px;
+
+    margin: 20px auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 50%;
+
+    border:
+        2px solid var(--vale-gold);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 229, 255, 0.15),
+            rgba(0, 0, 0, 0.80)
+        );
+
+    box-shadow:
+        0 0 50px rgba(212, 175, 55, 0.25);
+
+    color: var(--vale-gold-light);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   22 — VALE AI CORE
+========================================================= */
+
+.core-title,
+.hub-title {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+
+.core-title p,
+.hub-title p {
+
+    color: var(--vale-cyan);
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+}
+
+
+.core-title h1,
+.hub-title h1 {
+
+    margin-top: 20px;
+
+    font-size: 72px;
+
+    line-height: 1.1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #F6DF8B,
+            #D4AF37,
+            #00E5FF
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   23 — AI NETWORK
+========================================================= */
+
+.core-network {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    height: 850px;
+
+    margin: 0 auto;
+}
+
+
+.core-orb {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 229, 255, 0.20),
+            rgba(10, 5, 15, 0.95)
+        );
+
+    border:
+        2px solid var(--vale-gold);
+
+    box-shadow:
+        0 0 50px rgba(0, 229, 255, 0.30),
+        0 0 90px rgba(212, 175, 55, 0.25);
+
+    animation:
+        valeCorePulse 4s ease-in-out infinite;
+
+    z-index: 10;
+}
+
+
+.inner-core {
+
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #050509;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.40);
+
+    color: var(--vale-gold-light);
+
+    font-size: 42px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.ai-node {
+
+    position: absolute;
+
+    min-width: 220px;
+
+    padding: 18px 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    color: var(--vale-cyan);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 9, 24, 0.85),
+            rgba(0, 0, 0, 0.92)
+        );
+
+    border:
+        1px solid rgba(212, 175, 55, 0.30);
+
+    backdrop-filter: blur(18px);
+
+    z-index: 2;
+}
+
+
+.node-one {
+
+    top: 40px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+.node-two {
+
+    right: 40px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+.node-three {
+
+    bottom: 40px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+.node-four {
+
+    left: 40px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+/* =========================================================
+   24 — INTELLIGENCE HUB
+========================================================= */
+
+.hub-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+
+.hub-card {
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 9, 24, 0.85),
+            rgba(0, 0, 0, 0.92)
+        );
+
+    border:
+        1px solid var(--gold-border);
+
+    transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+
+.hub-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: var(--vale-cyan);
+
+    box-shadow:
+        0 20px 40px rgba(0, 229, 255, 0.15);
+}
+
+
+.hub-card h3 {
+
+    margin-bottom: 18px;
+
+    color: var(--vale-gold-light);
+
+    font-size: 24px;
+}
+
+
+.hub-card p {
+
+    color: #BFBFBF;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   25 — VALE CHAT
+========================================================= */
+
+.vale-chat {
+
+    width: min(600px, 92%);
+
+    margin: 50px auto;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    border:
+        1px solid rgba(212, 175, 55, 0.18);
+
+    backdrop-filter: blur(20px);
+}
+
+
+#chatBox {
+
+    min-height: 150px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    border:
+        1px solid var(--cyan-border);
+
+    text-align: left;
+
+    overflow-y: auto;
+}
+
+
+#userInput {
+
+    width: 70%;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.25);
+
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    color: white;
+}
+
+
+#userInput:focus {
+
+    border-color: var(--vale-cyan);
+
+    box-shadow:
+        0 0 15px rgba(0, 229, 255, 0.15);
+}
+
 
 .vale-chat button {
     padding: 12px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-/* ==========================
-   VALE LOGO V1
-========================== */
-
-.vale-symbol{
-
-    width:90px;
-    height:90px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
 }
 
-.vale-core{
 
-    position:relative;
+/* =========================================================
+   26 — VALE SHIELD / LOGO FRAME
+========================================================= */
 
-    width:80px;
-    height:80px;
+.shield-frame {
 
-}
+    position: relative;
 
-.core-ring{
+    width: 80px;
+    height: 80px;
 
-    position:absolute;
+    display: flex;
 
-    inset:0;
+    align-items: center;
+    justify-content: center;
 
-    border-radius:50%;
-
-    border:3px solid #D4AF37;
-
-    box-shadow:
-        0 0 15px rgba(212,175,55,.6);
-
-}
-
-.core-center{
-
-    position:absolute;
-
-    width:24px;
-    height:24px;
-
-    top:50%;
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:#00E5FF;
-
-    box-shadow:
-        0 0 20px #00E5FF,
-        0 0 40px rgba(0,229,255,.6);
-
-}
-/* ==========================
-   VALE SHIELD FRAME
-========================== */
-
-.shield-frame{
-
-    position:relative;
-
-    width:80px;
-
-    height:80px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    clip-path:polygon(
-        50% 0%,
-        88% 18%,
-        100% 55%,
-        82% 100%,
-        18% 100%,
-        0% 55%,
-        12% 18%
-    );
+    clip-path:
+        polygon(
+            50% 0%,
+            88% 18%,
+            100% 55%,
+            82% 100%,
+            18% 100%,
+            0% 55%,
+            12% 18%
+        );
 
     background:
-    linear-gradient(
-        145deg,
-        #FFF2B0,
-        #D4AF37,
-        #755300
-    );
+        linear-gradient(
+            145deg,
+            #FFF2B0,
+            #D4AF37,
+            #755300
+        );
 
     box-shadow:
-        0 0 25px rgba(212,175,55,.55),
-        inset 0 2px 6px rgba(255,255,255,.45),
-        inset 0 -8px 12px rgba(0,0,0,.35);
-
+        0 0 25px rgba(212, 175, 55, 0.55),
+        inset 0 2px 6px rgba(255, 255, 255, 0.45),
+        inset 0 -8px 12px rgba(0, 0, 0, 0.35);
 }
-/* ==========================
-   VALE HIDDEN V
-========================== */
 
-.vale-v{
 
-    position:absolute;
+.vale-core {
 
-    width:42px;
+    position: relative;
 
-    height:42px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
+    width: 80px;
+    height: 80px;
 }
+
+
+.core-ring {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    border:
+        3px solid var(--vale-gold);
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+
+.vale-v {
+
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 
 .v-left,
-.v-right{
+.v-right {
 
-    width:6px;
+    width: 6px;
+    height: 36px;
 
-    height:36px;
-
-    border-radius:10px;
-
-    background:linear-gradient(
-        to bottom,
-        #FFF8D0,
-        #D4AF37
-    );
-
-    box-shadow:
-        0 0 10px rgba(212,175,55,.8);
-
-}
-
-.v-left{
-
-    transform:
-    rotate(28deg);
-
-}
-
-.v-right{
-
-    transform:
-    rotate(-28deg);
-
-}
-/* ==========================
-   VALE ENERGY RING
-========================== */
-
-.energy-ring-one{
-
-    position:absolute;
-
-    width:60px;
-
-    height:60px;
-
-    border-radius:50%;
-
-    border:2px solid rgba(0,229,255,.7);
-
-    animation:energyRotate 6s linear infinite;
-
-    box-shadow:
-        0 0 15px rgba(0,229,255,.6);
-
-}
-
-@keyframes energyRotate{
-
-    from{
-
-        transform:rotate(0deg);
-
-    }
-
-    to{
-
-        transform:rotate(360deg);
-
-    }
-
-}
-/* ==========================
-   VALE CRYSTAL CORE
-========================== */
-
-.core-center{
-
-    position:absolute;
-
-    top:50%;
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:26px;
-    height:26px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:50%;
+    border-radius: 10px;
 
     background:
-    radial-gradient(circle,
-    #9DF9FF,
-    #00E5FF 60%,
-    #008CFF);
+        linear-gradient(
+            to bottom,
+            #FFF8D0,
+            #D4AF37
+        );
 
     box-shadow:
-    0 0 18px rgba(0,229,255,.9),
-    0 0 40px rgba(0,229,255,.6),
-    0 0 70px rgba(0,229,255,.3);
-
-    z-index:20;
-
+        0 0 10px rgba(212, 175, 55, 0.8);
 }
 
-.crystal-core{
 
-    width:12px;
+.v-left {
+    transform: rotate(28deg);
+}
 
-    height:12px;
 
-    background:white;
+.v-right {
+    transform: rotate(-28deg);
+}
 
-    transform:rotate(45deg);
 
-    border-radius:2px;
+/* =========================================================
+   27 — ENERGY RING / CRYSTAL
+========================================================= */
+
+.energy-ring-one {
+
+    position: absolute;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(0, 229, 255, 0.70);
 
     box-shadow:
-    0 0 12px white,
-    0 0 20px #00E5FF;
+        0 0 15px rgba(0, 229, 255, 0.60);
 
+    animation:
+        valeEnergyRotate 6s linear infinite;
 }
-@keyframes crystalPulse{
 
-    0%{
 
-        transform:translate(-50%,-50%) scale(1);
+.core-center {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #9DF9FF,
+            #00E5FF 60%,
+            #008CFF
+        );
+
+    box-shadow:
+        0 0 18px rgba(0, 229, 255, 0.90),
+        0 0 40px rgba(0, 229, 255, 0.60),
+        0 0 70px rgba(0, 229, 255, 0.30);
+
+    z-index: 20;
+
+    animation:
+        valeCrystalPulse 2.5s ease-in-out infinite;
+}
+
+
+.crystal-core {
+
+    width: 12px;
+    height: 12px;
+
+    background: white;
+
+    transform: rotate(45deg);
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 0 12px white,
+        0 0 20px var(--vale-cyan);
+}
+
+
+/* =========================================================
+   28 — FOOTER
+========================================================= */
+
+footer {
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: var(--vale-dim);
+
+    border-top:
+        1px solid rgba(212, 175, 55, 0.15);
+}
+
+
+/* =========================================================
+   29 — ANIMATIONS
+========================================================= */
+
+@keyframes valeEnergyRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes valeCrystalPulse {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+@keyframes valeCorePulse {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   30 — MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .topbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 15px 5%;
 
     }
 
-    50%{
 
-        transform:translate(-50%,-50%) scale(1.15);
-
+    .brand {
+        justify-content: center;
     }
 
-    100%{
 
-        transform:translate(-50%,-50%) scale(1);
+    .nav-menu,
+    nav {
 
+        justify-content: flex-start;
+
+        width: 100%;
     }
 
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 60px 5%;
+    }
+
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+
+    .hero p {
+        font-size: 18px;
+    }
+
+
+    .intelligence-panel {
+        width: 100%;
+    }
+
+
+    .welcome h1 {
+        font-size: 45px;
+    }
+
+
+    .market-title h1,
+    .forge-title h1,
+    .shield-title h1 {
+        font-size: 50px;
+    }
+
+
+    .market-grid,
+    .forge-grid,
+    .shield-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .core-title h1,
+    .hub-title h1 {
+        font-size: 44px;
+    }
+
+
+    .core-network {
+        height: 900px;
+    }
+
+
+    .core-orb {
+
+        width: 240px;
+        height: 240px;
+    }
+
+
+    .inner-core {
+
+        width: 150px;
+        height: 150px;
+
+        font-size: 32px;
+    }
+
+
+    .ai-node {
+
+        min-width: 170px;
+
+        padding: 14px 18px;
+
+        font-size: 14px;
+    }
+
+
+    .node-one {
+
+        top: 20px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+
+
+    .node-two {
+
+        right: 10px;
+
+        top: 220px;
+
+        transform: none;
+    }
+
+
+    .node-three {
+
+        bottom: 20px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+
+
+    .node-four {
+
+        left: 10px;
+
+        top: 220px;
+
+        transform: none;
+    }
+
+
+    #userInput {
+        width: 100%;
+    }
+
+
+    .vale-chat button {
+        margin-top: 12px;
+    }
 }
 
-.core-center{
 
-    animation:crystalPulse 2.5s ease-in-out infinite;
+/* =========================================================
+   31 — SMALL PHONES
+========================================================= */
 
+@media (max-width: 480px) {
+
+    .brand-name h2 {
+        font-size: 24px;
+        letter-spacing: 4px;
+    }
+
+
+    .brand-name span {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+
+    .vale-symbol {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+
+    .market-title h1,
+    .forge-title h1,
+    .shield-title h1 {
+        font-size: 42px;
+    }
+
+
+    .command-card,
+    .market-card,
+    .forge-card,
+    .shield-card {
+        padding: 25px;
+    }
+
+
+    .decision-panel,
+    .vision-engine,
+    .forge-result,
+    .shield-report,
+    .core-status {
+        padding: 25px;
+    }
 }
+
+
+/* =========================================================
+   32 — PERFORMANCE / ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   33 — FUTURE VALE DESIGN EXTENSIONS
+   ADD NEW APPROVED CSS BELOW THIS LINE ONLY
+========================================================= */
+
+
+/*
+   DESIGN 1 EXTENSIONS
+   Reserved for approved cinematic / 3D / loading / login
+   enhancements after the Main Design foundation is stable.
+*/
+
+
+/*
+   DESIGN 2 EXTENSIONS
+   Reserved for selectively approved enhancements only.
+*/
+
+
+/*
+   VALE FUTURE SYSTEMS
+   Camera
+   Voice
+   Login Wake-Up
+   Command System
+   Strategy System
+   Shield System
+   AI Core interactions
+*/
