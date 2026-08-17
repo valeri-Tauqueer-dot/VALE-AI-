@@ -3,350 +3,392 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>VALE AI Trading</title>
+    <meta
+        name="description"
+        content="VALE AI Trading Intelligence System"
+    >
 
-<meta name="description" content="VALE AI Trading - Intelligence Beyond Markets">
+    <title>VALE AI</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-<script>
-const valeToken = localStorage.getItem("vale_token");
 
-if (!valeToken) {
-    window.location.href = "login.html";
-}
-</script>
-
-
-<!-- TOP NAVIGATION -->
+<!-- =========================================================
+     VALE TOP NAVIGATION
+========================================================= -->
 
 <header class="topbar">
 
-<div class="brand">
+    <div class="brand">
 
-<div class="vale-symbol">
+        <div class="vale-symbol">
 
-<svg viewBox="0 0 120 120" fill="none">
+            <div class="vale-core">
 
-<path d="M18 18L60 102L102 18"
-stroke="#D4AF37"
-stroke-width="6"/>
+                <div class="core-ring"></div>
 
-<path d="M36 44L60 82L84 44"
-stroke="#00E5FF"
-stroke-width="5"/>
+                <div class="energy-ring-one"></div>
 
-</svg>
+                <div class="vale-v">
 
-</div>
+                    <div class="v-left"></div>
+                    <div class="v-right"></div>
 
-<div class="brand-name">
+                </div>
 
-<h2>VALE</h2>
+                <div class="core-center">
 
-<span>AI TRADING</span>
+                    <div class="crystal-core"></div>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<nav class="nav-menu">
+        </div>
 
-<a href="index.html">Home</a>
 
-<a href="command.html">Command</a>
+        <div class="brand-name">
 
-<a href="market.html">Market</a>
+            <h2>VALE</h2>
 
-<a href="strategy.html">Strategy</a>
+            <span>AI TRADING INTELLIGENCE</span>
 
-<a href="shield.html">Shield</a>
+        </div>
 
-<a href="core.html">Core</a>
+    </div>
 
-<a href="intelligence.html">Hub</a>
 
-</nav>
+    <nav class="nav-menu">
+
+        <a href="index.html">Home</a>
+
+        <a href="command.html">Command</a>
+
+        <a href="market.html">Market</a>
+
+        <a href="strategy.html">Strategy</a>
+
+        <a href="shield.html">Shield</a>
+
+        <a href="core.html">Core</a>
+
+        <a href="intelligence.html">Intelligence</a>
+
+        <a href="#" id="logoutBtn">Logout</a>
+
+    </nav>
 
 </header>
 
 
-<!-- HERO -->
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<main>
+
 
 <section class="hero">
 
-<div class="hero-content">
 
-<div class="tag">
+    <div class="hero-content">
 
-VALE INTELLIGENCE SYSTEM
-
-</div>
-
-<h1>
-
-Beyond
-
-<span>
-Market Prediction
-</span>
-
-</h1>
-
-<p>
-
-An advanced intelligence environment that
-transforms market complexity into strategic
-clarity.
-
-</p>
-
-<button>
-
-ENTER VALE
-
-</button>
-
-</div>
+        <div class="tag">
+            VALE AI SYSTEM • ONLINE
+        </div>
 
 
-<!-- INTELLIGENCE DISPLAY -->
+        <h1>
 
-<div class="intelligence-panel">
+            Intelligence
 
-<div class="panel-top">
+            <span>Beyond Trading.</span>
 
-VALE CORE
+        </h1>
 
-<span>
-ONLINE
-</span>
 
-</div>
+        <p>
 
-<div class="signal">
+            VALE is an intelligent trading operating system
+            designed to understand markets, evaluate risk,
+            study strategies and assist with disciplined
+            decision making.
 
-Market Vision
+        </p>
 
-<strong>
-ACTIVE
-</strong>
 
-</div>
+        <button
+            type="button"
+            id="commandBtn"
+            onclick="window.location.href='command.html'"
+        >
 
-<div class="signal">
+            ENTER COMMAND
 
-Pattern Intelligence
+        </button>
 
-<strong>
-LEARNING
-</strong>
+    </div>
 
-</div>
 
-<div class="signal">
 
-Decision Layer
+    <!-- =====================================================
+         INTELLIGENCE PANEL
+    ====================================================== -->
 
-<strong>
-READY
-</strong>
+    <div class="intelligence-panel">
 
-</div>
+        <div class="panel-top">
 
-<div class="energy-ring">
+            <strong>VALE CORE</strong>
 
-<div></div>
+            <span>● ONLINE</span>
 
-</div>
+        </div>
 
-</div>
+
+        <div class="signal">
+
+            <span>System</span>
+
+            <strong>READY</strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <span>Market Engine</span>
+
+            <strong>ACTIVE</strong>
+
+        </div>
+
+
+        <div class="signal">
+
+            <span>Risk Engine</span>
+
+            <strong>ACTIVE</strong>
+
+        </div>
+
+
+        <div class="energy-ring">
+
+            <div></div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- PLATFORM -->
+
+<!-- =========================================================
+     PLATFORM
+========================================================= -->
 
 <section class="platform">
 
-<h2>
-
-The VALE Intelligence Layer
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>
-
-Market Vision
-
-</h3>
-
-<p>
-
-Advanced understanding of market behaviour.
-
-</p>
-
-</div>
+    <h2>VALE Intelligence Platform</h2>
 
 
-<div class="card">
-
-<h3>
-
-Strategy Forge
-
-</h3>
-
-<p>
-
-Research, testing and strategy evolution.
-
-</p>
-
-</div>
+    <div class="cards">
 
 
-<div class="card">
+        <article class="card">
 
-<h3>
+            <h3>Command</h3>
 
-Capital Shield
+            <p>
+                Central workspace for interacting with
+                VALE and controlling the intelligence system.
+            </p>
 
-</h3>
-
-<p>
-
-Intelligent risk awareness and protection.
-
-</p>
-
-</div>
+        </article>
 
 
-<div class="card">
+        <article class="card">
 
-<h3>
+            <h3>Market</h3>
 
-Decision Engine
+            <p>
+                Market structure, price behaviour,
+                trends and market intelligence.
+            </p>
 
-</h3>
-
-<p>
-
-Turning information into intelligent actions.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
+        </article>
 
 
-<!-- VISION -->
+        <article class="card">
 
-<section class="vision">
+            <h3>Strategy</h3>
 
-<h2>
+            <p>
+                Strategy research, simulation and
+                structured trading logic.
+            </p>
 
-A New Intelligence Era
+        </article>
 
-</h2>
 
-<p>
+        <article class="card">
 
-VALE AI Trading is designed to become
-a next-generation financial intelligence
-ecosystem.
+            <h3>Capital Shield</h3>
 
-</p>
+            <p>
+                Risk management, capital protection,
+                position sizing and uncertainty analysis.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>AI Core</h3>
+
+            <p>
+                The intelligence architecture that
+                coordinates VALE's internal systems.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Intelligence Hub</h3>
+
+            <p>
+                Central view of VALE's knowledge,
+                intelligence and system capabilities.
+            </p>
+
+        </article>
+
+    </div>
 
 </section>
 
 
-<!-- VALE CHAT -->
+
+<!-- =========================================================
+     VALE CHAT
+========================================================= -->
 
 <section class="vale-chat">
 
-<h2>VALE AI Core</h2>
+    <div class="welcome">
 
-<div id="chatBox">
+        <p>VALE AI</p>
 
-<p><b>VALE:</b> System online. How can I help you?</p>
+        <h1>
+            Speak with VALE.
+        </h1>
 
-</div>
+    </div>
 
-<input
-id="userInput"
-type="text"
-placeholder="Ask VALE anything..."
->
 
-<button onclick="sendMessage()">
+    <div id="chatBox">
 
-Send
+        <p>
+            VALE is ready.
+        </p>
 
-</button>
+    </div>
+
+
+    <div class="chat-input-area">
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask VALE anything..."
+            autocomplete="off"
+        >
+
+
+        <button
+            type="button"
+            id="sendBtn"
+        >
+
+            Send
+
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- LOGOUT -->
 
-<section class="logout-section">
+<!-- =========================================================
+     VISION
+========================================================= -->
 
-<button
-type="button"
-onclick="logout()"
->
-Logout
-</button>
+<section class="vision">
+
+    <h2>
+        The Vision
+    </h2>
+
+
+    <p>
+
+        VALE is being built as more than a trading tool.
+
+        It is designed to evolve into an intelligent
+        decision-support operating system capable of
+        combining knowledge, reasoning, risk management
+        and continuous improvement.
+
+    </p>
 
 </section>
 
 
-<!-- FOOTER -->
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-<p>
-
-VALE AI Trading © 2026
-
-</p>
+    <p>
+        VALE AI Trading Intelligence
+    </p>
 
 </footer>
 
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script src="script.js"></script>
 
 <script src="app.js"></script>
 
-<script>
-
-function logout() {
-
-    localStorage.removeItem("vale_token");
-
-    window.location.href = "login.html";
-
-}
-
-</script>
 
 </body>
 
