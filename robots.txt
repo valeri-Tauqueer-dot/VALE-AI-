@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valeri-tauqueer-dot.github.io/VALE-AI-/sitemap.xml
