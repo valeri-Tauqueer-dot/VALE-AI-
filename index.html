@@ -5034,11 +5034,7 @@ canvas{
    * You can override it before this script loads with:
    *   window.VALE_API_BASE = "https://your-backend.onrender.com";
    */
-  const API_BASE = String(
-    window.VALE_API_BASE ||
-    document.documentElement.dataset.valeApiBase ||
-    window.location.origin
-  ).replace(/\/+$/, "");
+  const API_BASE = "https://vale-backend-ye4r.onrender.com";
 
   const TOKEN_KEY = "vale_access_token";
   const USER_KEY = "vale_username";
