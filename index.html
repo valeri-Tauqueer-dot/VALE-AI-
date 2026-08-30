@@ -4005,6 +4005,11 @@ body{
             <div class="chat-system-message">VALE is online and ready. Ask about market state, a strategy idea, or your current risk posture.</div>
             <div class="chat-input-area">
                 <input id="chatInput" type="text" placeholder="Ask VALE anything about markets, strategy or risk...">
+                <button id="attachButton" type="button" title="Attach file or photo">📎</button>
+                <button id="cameraButton" type="button" title="Camera">📷</button>
+                <button id="micButton" type="button" title="Voice">🎤</button>
+                <input id="fileInput" type="file" accept="image/*,application/pdf" style="display:none">
+                <input id="cameraInput" type="file" accept="image/*" capture="environment" style="display:none">
                 <button id="sendMessageButton" type="button">SEND</button>
             </div>
             <div class="chat-tools">
@@ -5416,6 +5421,112 @@ canvas{
       lockUI();
     });
   }
+
+  /* ---------------- VALE MEDIA CAPTURE ---------------- */
+  (function () {
+    const attachButton = $("attachButton");
+    const cameraButton = $("cameraButton");
+    const micButton = $("micButton");
+    const fileInput = $("fileInput");
+    const cameraInput = $("cameraInput");
+
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+
+    async function sendMedia(file) {
+      if (!file) return;
+
+      const token = getToken() || readStored(TOKEN_KEY);
+      if (!token) {
+        lockUI();
+        return;
+      }
+
+      addChatLine("user", "[Sent: " + (file.name || "voice message") + "]");
+
+      if (sendButton) {
+        sendButton.disabled = true;
+        sendButton.textContent = "UPLOADING...";
+      }
+
+      const formData = new FormData();
+      formData.append("file", file, file.name || "voice-message.webm");
+
+      try {
+        const response = await fetch(API_BASE + "/chat-media", {
+          method: "POST",
+          headers: { "Authorization": "Bearer " + token },
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result?.detail || "Upload failed.");
+        }
+
+        addChatLine("vale", result?.vale ?? "VALE returned no response.");
+      } catch (error) {
+        addChatLine("vale", "BACKEND ERROR // " + (error.message || "Unable to reach VALE."));
+      } finally {
+        if (sendButton) {
+          sendButton.disabled = false;
+          sendButton.textContent = "SEND";
+        }
+      }
+    }
+
+    if (attachButton && fileInput) {
+      attachButton.addEventListener("click", () => fileInput.click());
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        fileInput.value = "";
+        sendMedia(file);
+      });
+    }
+
+    if (cameraButton && cameraInput) {
+      cameraButton.addEventListener("click", () => cameraInput.click());
+      cameraInput.addEventListener("change", () => {
+        const file = cameraInput.files[0];
+        cameraInput.value = "";
+        sendMedia(file);
+      });
+    }
+
+    if (micButton) {
+      micButton.addEventListener("click", async () => {
+        if (!isRecording) {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            audioChunks = [];
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+            mediaRecorder.onstop = () => {
+              const blob = new Blob(audioChunks, { type: "audio/webm" });
+              const file = new File([blob], "voice-message.webm", { type: "audio/webm" });
+              sendMedia(file);
+              stream.getTracks().forEach((track) => track.stop());
+            };
+
+            mediaRecorder.start();
+            isRecording = true;
+            micButton.textContent = "⏹";
+            micButton.title = "Stop recording";
+          } catch (error) {
+            addChatLine("vale", "Microphone access was denied or unavailable.");
+          }
+        } else {
+          mediaRecorder.stop();
+          isRecording = false;
+          micButton.textContent = "🎤";
+          micButton.title = "Voice";
+        }
+      });
+    }
+  })();
 
   /* ---------------- BACKEND HEALTH ---------------- */
   async function syncBackendHealth() {
