@@ -3,7 +3,12 @@
 <head>
 <title>VALE AI — Advanced AI Trading Intelligence System | Md Tauqueer</title>
 
-   <link rel="icon" type="image/png" href="./favicon.png">
+   <link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="./favicon-96.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="icon" type="image/png" href="./favicon.png">
    
 <meta name="description" content="VALE AI by Md Tauqueer — an advanced AI trading intelligence system for market analysis, AI reasoning, learning, and intelligent decision-making.">
 
@@ -3398,114 +3403,39 @@ html{
 @media(max-width:780px){.vai38-stats{grid-template-columns:1fr 1fr}.vai38-grid{grid-template-columns:1fr;padding:10px}.vai38-chartbox,.vai38-chartbox canvas{min-height:270px}.vai38-flow{grid-template-columns:1fr 1fr}.vai38-terminal footer{flex-direction:column;gap:5px}.vai38-head{padding:15px}.vai38-head h3{font-size:13px}}
 </style>
 
-<style id="vale-neural-composer-v2">
-/* VALE Neural Composer — premium, mobile-first, lightweight */
-.chat-box{position:relative;isolation:isolate;overflow:visible}
-.chat-box .chat-system-message{display:flex;align-items:center;gap:12px;padding:18px 22px}
-.chat-system-message .vale-system-dot{color:var(--success);font-size:9px;text-shadow:0 0 12px var(--success);animation:valeSoftPulse 2.4s ease-in-out infinite}
-.chat-system-message b{display:block;color:var(--text);font:600 11px/1.2 "JetBrains Mono",monospace;letter-spacing:1.4px}
-.chat-system-message small{display:block;margin-top:4px;color:var(--text-muted);font:10px/1.2 "JetBrains Mono",monospace;letter-spacing:.8px}
-.vale-chat-stream{max-height:390px;overflow-y:auto;padding:18px 22px 6px;scroll-behavior:smooth;overscroll-behavior:contain;scrollbar-width:thin}
-.vale-chat-stream:empty{display:none}
-.vale-backend-chat-line{padding:15px 0;border-bottom:1px solid var(--border-hairline);animation:valeChatIn .28s ease both}
-.vale-backend-chat-line:last-child{border-bottom:0}
-.vale-chat-line-head{display:flex;align-items:center;gap:10px;margin-bottom:7px}
-.vale-backend-chat-label{font:700 10px/1 "JetBrains Mono",monospace;letter-spacing:1.3px;color:var(--text)}
-.vale-backend-chat-line.vale .vale-backend-chat-label{color:#d8b95d;text-shadow:0 0 14px rgba(212,175,55,.18)}
-.vale-chat-line-head small{color:var(--text-muted);font:9px/1 "JetBrains Mono",monospace;letter-spacing:.8px}
-.vale-backend-chat-text{white-space:pre-wrap;color:var(--text-muted);font:14px/1.7 "Inter",Arial,sans-serif;word-break:break-word}
-.vale-backend-chat-line.user .vale-backend-chat-text{color:var(--text)}
-.vale-suggestion-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:6px 22px 14px}
-.vale-suggestion-row>span{width:100%;font:9px/1 "JetBrains Mono",monospace;color:var(--text-muted);letter-spacing:1.1px;margin-bottom:2px}
-.vale-suggestion-row button,.vale-mode-chip{border:1px solid var(--border-hairline);background:rgba(255,255,255,.025);color:var(--text-muted);border-radius:999px;padding:8px 11px;font:9px/1 "JetBrains Mono",monospace;letter-spacing:.4px;cursor:pointer;transition:.22s ease}
-.vale-suggestion-row button:hover,.vale-mode-chip:hover,.vale-mode-chip.active{border-color:rgba(212,175,55,.45);color:var(--text);background:rgba(212,175,55,.06)}
-.vale-composer{margin:0 14px 12px;padding:11px;border:1px solid rgba(212,175,55,.18);border-radius:19px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:inset 0 1px rgba(255,255,255,.035),0 16px 45px rgba(0,0,0,.28);position:relative;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease}
-.vale-composer::after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.55),rgba(110,70,150,.4),transparent);opacity:.55}
-.vale-composer.is-focused{border-color:rgba(212,175,55,.38);box-shadow:inset 0 1px rgba(255,255,255,.045),0 18px 55px rgba(0,0,0,.35),0 0 30px rgba(100,50,120,.07)}
-.vale-composer[data-state="listening"]::after,.vale-composer[data-state="transmitting"]::after{animation:valeTrace 1.5s ease-in-out infinite}
-.vale-composer-status{display:flex;align-items:center;gap:7px;padding:2px 5px 8px;color:var(--text-muted);font:9px/1 "JetBrains Mono",monospace;letter-spacing:1px}
-.vale-core-orb{width:6px;height:6px;border-radius:50%;background:#d8b95d;box-shadow:0 0 9px rgba(212,175,55,.65);flex:0 0 auto}
-.vale-mode{margin-left:auto;border:1px solid var(--border-hairline);padding:4px 7px;border-radius:7px;font-size:8px;color:var(--text-muted)}
-.vale-input-row{display:flex;align-items:flex-end;gap:8px}
-.vale-input-row textarea{min-height:48px!important;max-height:150px!important;line-height:1.5!important;padding:14px 12px!important;border:0!important;background:transparent!important;box-shadow:none!important;outline:0!important;margin:0;overflow-y:auto}
-.vale-compose-action,.vale-send{flex:0 0 auto;width:49px;height:48px;border-radius:14px;border:1px solid var(--border-hairline);background:rgba(255,255,255,.025);color:var(--text-muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease}
-.vale-compose-action span,.vale-send span{font-size:18px;line-height:15px}.vale-compose-action small,.vale-send small{font:7px/1 "JetBrains Mono",monospace;letter-spacing:.8px}
-.vale-compose-action:hover{transform:translateY(-1px);border-color:rgba(212,175,55,.4);color:var(--text);background:rgba(212,175,55,.045)}
-.vale-compose-action.recording{border-color:rgba(160,70,100,.7);color:#d8b95d;animation:valeRecord 1.1s ease-in-out infinite}
-.vale-send{border-color:rgba(212,175,55,.3);background:linear-gradient(145deg,rgba(212,175,55,.11),rgba(80,40,80,.09));color:var(--text)}
-.vale-send:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 0 22px rgba(212,175,55,.09)}
-.vale-send.is-busy{opacity:.7;cursor:wait}.vale-send:disabled{cursor:not-allowed;opacity:.5}
-.vale-mode-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;padding:9px 4px 1px}.vale-mode-row>span{font:8px/1 "JetBrains Mono",monospace;color:var(--text-muted);letter-spacing:1px;margin-right:2px}.vale-mode-chip{padding:6px 8px;font-size:8px}
-.vale-attachment-preview{display:flex;align-items:center;gap:9px;margin:0 2px 8px;padding:9px 10px;border:1px solid rgba(212,175,55,.16);border-radius:11px;background:rgba(0,0,0,.16)}
-.vale-file-glyph{font-size:15px;color:#d8b95d}.vale-attachment-preview>span:nth-child(2){min-width:0;flex:1}.vale-attachment-preview b,.vale-attachment-preview small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.vale-attachment-preview b{font:10px/1.3 "JetBrains Mono",monospace;color:var(--text)}.vale-attachment-preview small{font:8px/1.3 "JetBrains Mono",monospace;color:var(--text-muted);margin-top:2px}.vale-attachment-preview button{border:0;background:none;color:var(--text-muted);font-size:18px;cursor:pointer}
-.vale-vault{position:absolute;z-index:20;left:14px;right:14px;bottom:112px;border:1px solid rgba(212,175,55,.22);border-radius:18px;background:rgba(10,8,11,.96);box-shadow:0 25px 70px rgba(0,0,0,.65),0 0 40px rgba(90,45,100,.12);backdrop-filter:blur(18px);padding:14px;animation:valeVaultIn .2s ease both}
-.vale-vault-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;color:var(--text);font:700 10px/1 "JetBrains Mono",monospace;letter-spacing:1.3px}.vale-vault-head button{border:0;background:none;color:var(--text-muted);font-size:22px;cursor:pointer}.vale-vault-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.vale-vault-grid button{min-height:80px;text-align:left;border:1px solid var(--border-hairline);border-radius:13px;background:rgba(255,255,255,.025);color:var(--text);padding:10px;cursor:pointer;transition:.2s ease}.vale-vault-grid button:hover{border-color:rgba(212,175,55,.38);background:rgba(212,175,55,.045);transform:translateY(-1px)}.vale-vault-grid b{display:block;font-size:18px;color:#d8b95d;margin-bottom:7px}.vale-vault-grid span{display:block;font:700 9px/1 "JetBrains Mono",monospace;letter-spacing:1px}.vale-vault-grid small{display:block;color:var(--text-muted);font:8px/1.4 "Inter",Arial,sans-serif;margin-top:4px}
-.vale-answer-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0 20px 17px}.vale-answer-tools>span{font:8px/1 "JetBrains Mono",monospace;color:var(--text-muted);letter-spacing:1px;margin-right:auto}.vale-answer-tools button{padding:8px 10px;border:1px solid var(--border-hairline);border-radius:9px;background:rgba(255,255,255,.025);color:var(--text-muted);font:8px/1 "JetBrains Mono",monospace;cursor:pointer}.vale-answer-tools button:hover{border-color:rgba(212,175,55,.35);color:var(--text)}
-@keyframes valeChatIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}@keyframes valeSoftPulse{50%{opacity:.35}}@keyframes valeTrace{50%{opacity:.95;transform:scaleX(.7)}}@keyframes valeRecord{50%{box-shadow:0 0 0 4px rgba(140,60,100,.08)}}@keyframes valeVaultIn{from{opacity:0;transform:translateY(7px) scale(.985)}to{opacity:1;transform:none}}
-@media(max-width:680px){.vale-chat-stream{max-height:44vh;padding:12px 15px 4px}.vale-composer{margin:0 9px 9px;padding:9px;border-radius:17px}.vale-suggestion-row{padding:5px 15px 11px;overflow-x:auto;flex-wrap:nowrap}.vale-suggestion-row>span{display:none}.vale-suggestion-row button{white-space:nowrap}.vale-answer-tools{padding:0 14px 13px}.vale-answer-tools>span{width:100%;margin:0 0 1px}.vale-vault{left:9px;right:9px;bottom:105px}.vale-vault-grid button{min-height:74px}.vale-input-row{gap:6px}.vale-compose-action,.vale-send{width:45px;height:46px}.vale-input-row textarea{font-size:14px!important}}
-@media(prefers-reduced-motion:reduce){.vale-composer::after,.vale-compose-action.recording,.vale-system-dot{animation:none!important}.vale-chat-stream{scroll-behavior:auto}}
-
-/* VALE FINAL MOBILE POLISH — chat, composer and data vault */
-.vale-input-row textarea,
-#chatInput{
-  color:#eee0c1 !important;
-  -webkit-text-fill-color:#eee0c1 !important;
-  caret-color:#d8b65d !important;
-}
-.vale-input-row textarea::placeholder,
-#chatInput::placeholder{
-  color:rgba(238,224,193,.46) !important;
-  -webkit-text-fill-color:rgba(238,224,193,.46) !important;
-}
-.vale-vault{
-  display:block;
-  pointer-events:auto;
-  z-index:9999;
-  transform-origin:bottom left;
-}
-.vale-vault[hidden]{display:none !important}
-.vale-vault.is-open{
-  display:block !important;
-  pointer-events:auto;
-}
-.vale-vault-grid button{
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
-}
-@media(max-width:680px){
-  .vale-backend-chat-line{
-    display:block;
-    margin:9px 12px;
-    padding:13px 13px;
-  }
-  .vale-chat-line-head{
-    display:flex;
-    width:100%;
-    flex-wrap:wrap;
-    margin-bottom:9px;
-  }
-  .vale-backend-chat-text{
-    font-size:14px !important;
-    line-height:1.65 !important;
-    color:#eee0c1 !important;
-  }
-  .vale-vault{
-    left:9px;
-    right:9px;
-    bottom:106px;
-    max-height:min(52vh,430px);
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-  }
-  .vale-vault-grid{
-    grid-template-columns:1fr 1fr;
-  }
-  .vale-vault-grid button{
-    min-height:78px;
-  }
-}
-
+<style id="vale-chat-media-final">
+/* VALE CHAT / MEDIA FINAL LAYER — visual-only chat polish, no Brain/connector changes */
+.chat-box{overflow:visible}
+.chat-history{max-height:52vh;overflow-y:auto;scroll-behavior:smooth;padding:6px 0 2px;overscroll-behavior:contain}
+.chat-history:empty{display:none}
+.vale-chat-line{display:block;width:auto;margin:10px 22px;padding:14px 16px;border:1px solid rgba(212,175,55,.11);border-radius:15px;background:rgba(255,255,255,.018);font:12px/1.7 "JetBrains Mono",monospace;box-sizing:border-box;overflow:visible}
+.vale-chat-line .vale-chat-label{display:block;margin-bottom:7px;font-size:9px;letter-spacing:2px;color:#a99599}
+.vale-chat-line.user .vale-chat-label{color:#d9bf7a}
+.vale-chat-line.vale .vale-chat-label{color:#ead18a}
+.vale-chat-line .vale-chat-text{display:block;width:100%;color:#eee0c1;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;box-sizing:border-box}
+.chat-input-area{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:16px 18px 10px;align-items:end}
+.vale-composer{position:relative;min-width:0;border:1px solid rgba(212,175,55,.18);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 0 28px rgba(111,28,50,.08);transition:border-color .25s ease,box-shadow .25s ease}
+.vale-composer:focus-within{border-color:rgba(212,175,55,.48);box-shadow:0 0 0 3px rgba(212,175,55,.05),0 0 30px rgba(111,28,50,.14)}
+.vale-composer::after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.55),rgba(123,38,56,.65),transparent);opacity:.7;pointer-events:none}
+.vale-composer-head{display:flex;align-items:center;justify-content:space-between;padding:10px 13px 0;font:9px/1 "JetBrains Mono",monospace;letter-spacing:1.7px;text-transform:uppercase;color:#a99599}
+.vale-composer-state{color:#ead18a}.vale-composer-state::before{content:"●";margin-right:7px;color:#8bd3a2;font-size:7px}
+#chatInput{display:block;width:100%;min-height:48px;max-height:150px;box-sizing:border-box;border:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;border-radius:16px;padding:11px 13px 9px;color:#eee0c1!important;-webkit-text-fill-color:#eee0c1!important;font:14px/1.55 "Inter",sans-serif;resize:none;caret-color:#d8b65d}
+#chatInput::placeholder{color:rgba(238,224,193,.46)!important;-webkit-text-fill-color:rgba(238,224,193,.46)!important}
+.vale-composer-actions{display:flex;gap:5px;padding:0 8px 8px;align-items:center}
+.vale-compose-action{width:36px;height:32px;border-radius:10px;border:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.16);color:#d8cbbf;display:inline-flex;align-items:center;justify-content:center;font:11px "JetBrains Mono",monospace;cursor:pointer;transition:transform .2s ease,border-color .2s ease,color .2s ease,background .2s ease}
+.vale-compose-action:hover,.vale-compose-action:focus-visible{transform:translateY(-1px);border-color:rgba(212,175,55,.38);color:#f0d98f;background:rgba(123,38,56,.16);outline:none}
+.vale-vault-trigger{font-size:14px}
+.vale-vault-label{font:8px "JetBrains Mono",monospace;letter-spacing:1.1px;margin-left:3px;color:#bba9a5}
+#sendMessageButton{min-height:50px;padding:0 18px;border-radius:15px;align-self:stretch;cursor:pointer}
+.vale-mode-row{display:flex;gap:7px;overflow-x:auto;padding:2px 22px 12px;scrollbar-width:none}.vale-mode-row::-webkit-scrollbar{display:none}
+.vale-mode-row button{white-space:nowrap;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);color:#9f8f92;border-radius:999px;padding:7px 11px;font:9px "JetBrains Mono",monospace;letter-spacing:1px;cursor:pointer}.vale-mode-row button.active{color:#ead18a;border-color:rgba(212,175,55,.32);background:rgba(123,38,56,.12)}
+.vale-suggestions{display:flex;gap:7px;flex-wrap:wrap;padding:0 22px 14px}.vale-suggestion{border:0;background:transparent;color:#8f7f84;font:9px "JetBrains Mono",monospace;cursor:pointer;padding:0}.vale-suggestion:hover{color:#ead18a}
+.vale-vault{position:absolute;left:18px;bottom:78px;width:min(430px,calc(100% - 36px));padding:14px;border:1px solid rgba(212,175,55,.28);border-radius:18px;background:rgba(10,4,7,.97);box-shadow:0 28px 70px rgba(0,0,0,.62),0 0 35px rgba(111,28,50,.18);z-index:10000;backdrop-filter:blur(18px)}
+.vale-vault[hidden]{display:none!important}.vale-vault-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.vale-vault-title{font:600 11px "JetBrains Mono",monospace;letter-spacing:2px;color:#ead18a}.vale-vault-close{border:0;background:transparent;color:#9f8f92;font-size:18px;cursor:pointer}.vale-vault-sub{font:9px/1.5 "JetBrains Mono",monospace;color:#75666b;margin:-7px 0 12px}.vale-vault-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.vale-vault-grid button{min-height:68px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(123,38,56,.06));color:#dfd1c6;font:10px "JetBrains Mono",monospace;letter-spacing:.8px;cursor:pointer;text-align:left;padding:12px}.vale-vault-grid button strong{display:block;color:#ead18a;font-size:12px;margin-bottom:5px}.vale-vault-grid button span{color:#84757a;font-size:8px}
+.vale-attachment{margin:0 22px 8px;padding:9px 11px;border:1px solid rgba(212,175,55,.12);border-radius:11px;background:rgba(255,255,255,.018);font:9px/1.5 "JetBrains Mono",monospace;color:#bba9a5}.vale-attachment strong{color:#ead18a}.vale-attachment .remove{float:right;border:0;background:transparent;color:#9f8f92;cursor:pointer}
+@media(max-width:680px){.chat-history{max-height:49vh}.vale-chat-line{margin:8px 12px;padding:12px 13px}.vale-chat-line .vale-chat-text{font-size:14px;line-height:1.6}.chat-input-area{grid-template-columns:minmax(0,1fr) auto;padding:12px 12px 8px;gap:8px}.vale-mode-row,.vale-suggestions{padding-left:12px;padding-right:12px}.vale-vault{left:9px;bottom:88px;width:calc(100% - 18px)}#sendMessageButton{padding:0 13px;font-size:10px}.vale-composer-head{padding-left:11px;padding-right:11px}}
 </style>
+
 </head>
 <body>
 
@@ -4110,39 +4040,44 @@ body{
             <h2 data-text="ASK VALE">ASK VALE</h2>
             <span>Talk directly to the core about markets, strategy or risk.</span>
         </div>
-        <div class="chat-box reveal" id="valeChatBox">
-            <div class="chat-system-message"><span class="vale-system-dot">●</span><span><b>VALE CORE</b><small>ONLINE • READY TO LISTEN</small></span></div>
-            <div class="vale-chat-stream" id="valeChatStream" aria-live="polite"></div>
-            <div class="vale-suggestion-row" id="valeSuggestions">
-                <span>TRY ASKING</span>
-                <button type="button" data-prompt="What is the current market state?">Market state</button>
-                <button type="button" data-prompt="Analyze the risks in the current market.">Risk check</button>
-                <button type="button" data-prompt="Give me a trading strategy framework.">Strategy</button>
-            </div>
-            <div class="vale-composer" id="valeComposer">
-                <div class="vale-composer-status"><span class="vale-core-orb"></span><span id="valeComposerState">VALE CORE • READY</span><span class="vale-mode">GENERAL</span></div>
-                <div class="vale-attachment-preview" id="valeAttachmentPreview" hidden></div>
-                <div class="vale-input-row">
-                    <button id="attachButton" class="vale-compose-action vale-vault-trigger" type="button" title="Open VALE Data Vault" aria-label="Open VALE Data Vault"><span>＋</span><small>VAULT</small></button>
-                    <textarea id="chatInput" rows="1" maxlength="8000" placeholder="Ask VALE anything..." aria-label="Ask VALE"></textarea>
-                    <button id="micButton" class="vale-compose-action" type="button" title="Voice" aria-label="Voice"><span>◉</span><small>VOICE</small></button>
-                    <button id="sendMessageButton" class="vale-send" type="button" aria-label="Send"><span>➤</span><small>SEND</small></button>
+        <div class="chat-box reveal">
+            <div class="chat-system-message">VALE is online and ready. Ask about market state, a strategy idea, or your current risk posture.</div>
+            <div id="valeChatHistory" class="chat-history" aria-live="polite"></div>
+            <div id="valeAttachmentPreview"></div>
+            <div class="chat-input-area">
+                <div class="vale-composer">
+                    <div class="vale-composer-head"><span>◈ VALE CORE</span><span id="valeComposerState" class="vale-composer-state">READY</span></div>
+                    <textarea id="chatInput" rows="1" placeholder="Ask VALE anything..."></textarea>
+                    <div class="vale-composer-actions">
+                        <button id="attachButton" class="vale-compose-action vale-vault-trigger" type="button" title="VALE Data Vault" aria-haspopup="dialog" aria-expanded="false">＋<span class="vale-vault-label">VAULT</span></button>
+                        <button id="cameraButton" class="vale-compose-action" type="button" title="Camera">▣</button>
+                        <button id="micButton" class="vale-compose-action" type="button" title="Voice">◉</button>
+                        <input id="fileInput" type="file" accept="image/*,application/pdf,text/plain,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none">
+                        <input id="cameraInput" type="file" accept="image/*" capture="environment" style="display:none">
+                    </div>
                 </div>
-                <div class="vale-mode-row"><span>INTELLIGENCE</span><button type="button" class="vale-mode-chip active">GENERAL</button><button type="button" class="vale-mode-chip">MARKET</button><button type="button" class="vale-mode-chip">STRATEGY</button><button type="button" class="vale-mode-chip">RISK</button></div>
+                <button id="sendMessageButton" type="button">SEND</button>
             </div>
-            <div class="vale-vault" id="valeVault" hidden>
-                <div class="vale-vault-head"><span>VALE DATA VAULT</span><button id="closeVault" type="button" aria-label="Close">×</button></div>
+            <div class="vale-mode-row" id="valeModeRow">
+                <button type="button" data-mode="GENERAL" class="active">GENERAL</button><button type="button" data-mode="MARKET">MARKET</button><button type="button" data-mode="STRATEGY">STRATEGY</button><button type="button" data-mode="RISK">RISK</button>
+            </div>
+            <div class="vale-suggestions" id="valeSuggestions">
+                <span style="font:9px "JetBrains Mono",monospace;color:#6f6267">TRY ASKING</span>
+                <button class="vale-suggestion" type="button">What is happening in BTC?</button>
+                <button class="vale-suggestion" type="button">Explain this simply</button>
+                <button class="vale-suggestion" type="button">Check the current risk</button>
+            </div>
+            <div id="valeVault" class="vale-vault" hidden role="dialog" aria-label="VALE Data Vault" aria-hidden="true">
+                <div class="vale-vault-head"><span class="vale-vault-title">VALE DATA VAULT</span><button id="closeVault" class="vale-vault-close" type="button" aria-label="Close">×</button></div>
+                <div class="vale-vault-sub">SELECT INPUT FOR THE EXISTING VALE CORE</div>
                 <div class="vale-vault-grid">
-                    <button id="vaultFile" type="button"><b>▱</b><span>FILE</span><small>Documents & images</small></button>
-                    <button id="vaultCamera" type="button"><b>⌾</b><span>CAMERA</span><small>Capture intelligence</small></button>
-                    <button id="vaultPhoto" type="button"><b>▣</b><span>PHOTO</span><small>Choose a photo</small></button>
-                    <button id="vaultVoice" type="button"><b>◉</b><span>VOICE</span><small>Speak to VALE</small></button>
+                    <button id="vaultFile" type="button"><strong>▣ FILE</strong><span>PDF • TXT • DOCX • IMAGE</span></button>
+                    <button id="vaultPhoto" type="button"><strong>◉ PHOTO</strong><span>CHOOSE FROM GALLERY</span></button>
+                    <button id="vaultCamera" type="button"><strong>▧ CAMERA</strong><span>CAPTURE IMAGE</span></button>
+                    <button id="vaultVoice" type="button"><strong>◌ VOICE</strong><span>RECORD MESSAGE</span></button>
                 </div>
             </div>
-            <input id="fileInput" type="file" accept="image/*,application/pdf,text/plain,.docx" style="display:none">
-            <input id="cameraInput" type="file" accept="image/*" capture="environment" style="display:none">
-            <div class="vale-answer-tools">
-                <span>QUICK COMMANDS</span>
+            <div class="chat-tools">
                 <button type="button">MARKET STATE</button>
                 <button type="button">RUN STRATEGY</button>
                 <button type="button">RISK CHECK</button>
@@ -5439,268 +5374,166 @@ canvas{
     }, true);
   }
 
-  /* ---------------- CHAT + VALE NEURAL COMPOSER ---------------- */
+  /* ---------------- CHAT + MEDIA ---------------- */
   const chatInput = $("chatInput");
   const sendButton = $("sendMessageButton");
   const chatBox = document.querySelector(".chat-box");
   const systemMessage = chatBox?.querySelector(".chat-system-message");
-  const chatStream = $("valeChatStream");
-  const composer = $("valeComposer");
+  const chatHistory = $("valeChatHistory");
   const composerState = $("valeComposerState");
   const suggestions = $("valeSuggestions");
+  const attachmentPreview = $("valeAttachmentPreview");
+  let pendingFile = null;
+  let selectedMode = "GENERAL";
 
-  function scrollChatToBottom(smooth = true) {
-    if (!chatStream) return;
-    requestAnimationFrame(() => chatStream.scrollTo({ top: chatStream.scrollHeight, behavior: smooth ? "smooth" : "auto" }));
-  }
-
-  function setComposerState(state) {
-    if (composerState) composerState.textContent = "VALE CORE • " + state;
-    if (composer) composer.dataset.state = state.toLowerCase().replace(/\s+/g, "-");
-  }
-
-  function autoGrowInput() {
-    if (!chatInput) return;
-    chatInput.style.height = "auto";
-    chatInput.style.height = Math.min(Math.max(chatInput.scrollHeight, 48), 150) + "px";
+  function scrollChatToBottom() {
+    if (!chatHistory) return;
+    requestAnimationFrame(() => { chatHistory.scrollTop = chatHistory.scrollHeight; });
   }
 
   function addChatLine(kind, text) {
     if (!chatBox) return null;
-    const row = document.createElement("article");
-    row.className = "vale-backend-chat-line " + kind;
-    const head = document.createElement("div");
-    head.className = "vale-chat-line-head";
+    const row = document.createElement("div");
+    row.className = "vale-chat-line " + kind;
     const label = document.createElement("span");
-    label.className = "vale-backend-chat-label";
-    label.textContent = kind === "user" ? "YOU" : "◈ VALE CORE";
-    const meta = document.createElement("small");
-    meta.textContent = kind === "user" ? "INPUT" : "INTELLIGENCE RESPONSE";
-    head.append(label, meta);
+    label.className = "vale-chat-label";
+    label.textContent = kind === "user" ? "YOU • INPUT" : "◈ VALE CORE • INTELLIGENCE RESPONSE";
     const content = document.createElement("div");
-    content.className = "vale-backend-chat-text";
+    content.className = "vale-chat-text";
     content.textContent = String(text);
-    row.append(head, content);
-    if (chatStream) chatStream.appendChild(row);
+    row.append(label, content);
+    if (chatHistory) chatHistory.appendChild(row);
     else if (systemMessage) systemMessage.insertAdjacentElement("afterend", row);
-    else chatBox.appendChild(row);
-    scrollChatToBottom(true);
+    scrollChatToBottom();
     return row;
   }
 
-  function showValeError(error, context = "BACKEND") {
-    const status = error?.status ? "HTTP " + error.status : "NETWORK";
-    const detail = error?.message || "Unable to reach VALE.";
-    addChatLine("vale", context + " ERROR // " + status + " // " + detail);
+  function setComposerState(text, busy=false) {
+    if (composerState) composerState.textContent = text;
+    if (sendButton) sendButton.disabled = !!busy;
+  }
+
+  function resizeComposer() {
+    if (!chatInput) return;
+    chatInput.style.height = "auto";
+    chatInput.style.height = Math.min(chatInput.scrollHeight, 150) + "px";
   }
 
   async function sendChat(message) {
     if (!message) return;
-    if (!getToken() && !readStored(TOKEN_KEY)) { lockUI(); return; }
-    if (sendButton) { sendButton.disabled = true; sendButton.classList.add("is-busy"); }
-    setComposerState("PROCESSING");
-    if (suggestions) suggestions.hidden = true;
+    const token = getToken() || readStored(TOKEN_KEY);
+    if (!token) { lockUI(); return; }
+    if (sendButton) { sendButton.disabled = true; sendButton.textContent = "..."; }
+    setComposerState("PROCESSING", true);
     addChatLine("user", message);
     try {
-      const result = await api("/chat", { method: "POST", body: JSON.stringify({ message }) });
+      const result = await api("/chat", { method:"POST", body:JSON.stringify({message}) });
       addChatLine("vale", result?.vale ?? "VALE returned no response.");
     } catch (error) {
       if (error.status === 401) { clearSession(); lockUI(); setLoginError("SESSION EXPIRED // PLEASE AUTHORIZE AGAIN"); }
-      else showValeError(error, "CHAT BACKEND");
+      else addChatLine("vale", "BACKEND ERROR // " + (error.message || "Unable to reach VALE."));
     } finally {
-      if (sendButton) { sendButton.disabled = false; sendButton.classList.remove("is-busy"); }
-      setComposerState("READY");
-      autoGrowInput();
+      if (sendButton) { sendButton.disabled = false; sendButton.textContent = "SEND"; }
+      setComposerState("READY", false);
+      resizeComposer();
     }
   }
 
-  if (sendButton && chatInput) {
-    sendButton.addEventListener("click", () => {
-      const message = chatInput.value.trim();
-      if (!message || sendButton.disabled) return;
-      chatInput.value = ""; autoGrowInput(); sendChat(message);
-    });
-  }
+  if (sendButton && chatInput) sendButton.addEventListener("click", () => {
+    const message = chatInput.value.trim();
+    if (!message && !pendingFile) return;
+    if (pendingFile) sendMedia(pendingFile, message);
+    else { chatInput.value=""; resizeComposer(); sendChat(message); }
+  });
 
   if (chatInput) {
-    chatInput.addEventListener("input", () => {
-      autoGrowInput();
-      if (suggestions && chatInput.value.trim()) suggestions.hidden = true;
-      if (composer) composer.dataset.state = chatInput.value.trim() ? "listening" : "ready";
-      if (composerState && chatInput.value.trim()) composerState.textContent = "VALE CORE • LISTENING";
-      else setComposerState("READY");
-    });
-    chatInput.addEventListener("focus", () => { if (composer) composer.classList.add("is-focused"); });
-    chatInput.addEventListener("blur", () => { if (composer) composer.classList.remove("is-focused"); });
+    chatInput.addEventListener("input", () => { resizeComposer(); setComposerState(chatInput.value.trim()?"LISTENING":"READY"); });
     chatInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault(); if (sendButton) sendButton.click();
-      }
+      if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); if (sendButton) sendButton.click(); }
     });
   }
 
-  document.querySelectorAll(".vale-mode-chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".vale-mode-chip").forEach((c) => c.classList.remove("active"));
-      chip.classList.add("active");
-      const mode = chip.textContent.trim();
-      const modeEl = document.querySelector(".vale-mode");
-      if (modeEl) modeEl.textContent = mode;
-    });
-  });
+  document.querySelectorAll("#valeModeRow button").forEach(button => button.addEventListener("click", () => {
+    document.querySelectorAll("#valeModeRow button").forEach(b=>b.classList.remove("active"));
+    button.classList.add("active"); selectedMode=button.dataset.mode||"GENERAL";
+    if (chatInput) { chatInput.placeholder = selectedMode === "GENERAL" ? "Ask VALE anything..." : "Ask VALE about " + selectedMode.toLowerCase() + "..."; chatInput.focus(); }
+  }));
+  document.querySelectorAll(".vale-suggestion").forEach(button => button.addEventListener("click",()=>{ if(chatInput){chatInput.value=button.textContent.trim();resizeComposer();chatInput.focus();} }));
 
-  document.querySelectorAll("#valeSuggestions button[data-prompt]").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (!chatInput) return;
-      chatInput.value = button.dataset.prompt || ""; autoGrowInput(); chatInput.focus();
-    });
-  });
+  /* ---------------- VALE MEDIA VAULT ---------------- */
+  const attachButton = $("attachButton"), cameraButton = $("cameraButton"), micButton = $("micButton");
+  const fileInput = $("fileInput"), cameraInput = $("cameraInput");
+  const vault = $("valeVault"), closeVault = $("closeVault"), vaultFile=$("vaultFile"), vaultPhoto=$("vaultPhoto"), vaultCamera=$("vaultCamera"), vaultVoice=$("vaultVoice");
+  let mediaRecorder=null, audioChunks=[], isRecording=false;
 
-  const quickCommands = {
-    "MARKET STATE": "What is the current market state?",
-    "RUN STRATEGY": "Give me a trading strategy framework.",
-    "RISK CHECK": "Run a risk management check."
-  };
-  document.querySelectorAll(".vale-answer-tools button").forEach((button) => {
-    const label = button.textContent.trim().toUpperCase();
-    if (!(label in quickCommands) || button.id === "logoutButton") return;
-    button.addEventListener("click", () => {
-      if (!chatInput) return; chatInput.value = quickCommands[label]; autoGrowInput(); chatInput.focus();
-    });
-  });
+  function openVault(){ if(!vault)return; vault.hidden=false; vault.setAttribute("aria-hidden","false"); attachButton?.setAttribute("aria-expanded","true"); }
+  function closeVaultPanel(){ if(!vault)return; vault.hidden=true; vault.setAttribute("aria-hidden","true"); attachButton?.setAttribute("aria-expanded","false"); }
+  attachButton?.addEventListener("click",e=>{e.preventDefault();openVault();});
+  closeVault?.addEventListener("click",closeVaultPanel);
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVaultPanel();});
+  document.addEventListener("pointerdown",e=>{if(vault && !vault.hidden && !vault.contains(e.target) && e.target!==attachButton && !attachButton?.contains(e.target))closeVaultPanel();},{passive:true});
+  vaultFile?.addEventListener("click",()=>{closeVaultPanel();fileInput?.click();});
+  vaultPhoto?.addEventListener("click",()=>{closeVaultPanel();fileInput?.setAttribute("accept","image/*");fileInput?.removeAttribute("capture");fileInput?.click();});
+  vaultCamera?.addEventListener("click",()=>{closeVaultPanel();cameraInput?.click();});
 
-  const logoutButton = $("logoutButton");
-  if (logoutButton) logoutButton.addEventListener("click", () => { clearSession(); if (chatInput) chatInput.value = ""; lockUI(); });
+  function showAttachment(file){
+    pendingFile=file||null;
+    if(!attachmentPreview){return;}
+    attachmentPreview.innerHTML="";
+    if(!file)return;
+    const card=document.createElement("div"); card.className="vale-attachment";
+    const size=(file.size/1024).toFixed(file.size>1024*1024?0:1);
+    card.innerHTML='<strong>◈ MEDIA OBJECT</strong> &nbsp; '+String(file.name||"media").replace(/[<>]/g,"")+' &nbsp; • '+size+' KB • READY <button class="remove" type="button">×</button>';
+    card.querySelector(".remove").addEventListener("click",()=>{pendingFile=null;attachmentPreview.innerHTML="";});
+    attachmentPreview.appendChild(card);
+  }
 
-  /* ---------------- VALE MEDIA / VAULT / ANDROID VOICE ---------------- */
-  (function () {
-    const attachButton = $("attachButton"), cameraButton = $("vaultCamera"), photoButton = $("vaultPhoto"), voiceButton = $("vaultVoice");
-    const micButton = $("micButton"), fileInput = $("fileInput"), cameraInput = $("cameraInput");
-    const vault = $("valeVault"), closeVault = $("closeVault"), preview = $("valeAttachmentPreview");
-    let mediaRecorder = null, audioChunks = [], isRecording = false;
-
-    function openVault() {
-      if (!vault) return;
-      vault.hidden = false;
-      vault.classList.add("is-open");
-      vault.setAttribute("aria-hidden", "false");
-      requestAnimationFrame(() => {
-        const first = vault.querySelector("button");
-        if (first) first.focus({ preventScroll: true });
-      });
+  async function sendMedia(file, message=""){
+    if(!file)return;
+    const token=getToken()||readStored(TOKEN_KEY); if(!token){lockUI();return;}
+    const question=(message||chatInput?.value||"").trim();
+    addChatLine("user", question ? question+"\n[MEDIA: "+(file.name||"attachment")+"]" : "[MEDIA: "+(file.name||"attachment")+"]");
+    setComposerState("TRANSMITTING",true); if(sendButton)sendButton.textContent="...";
+    const formData=new FormData(); formData.append("file",file,file.name||"voice-message.webm"); formData.append("message",question);
+    try{
+      const response=await fetch(API_BASE+"/chat-media",{method:"POST",headers:{"Authorization":"Bearer "+token},body:formData});
+      let result={}; try{result=await response.json();}catch(_){result={};}
+      if(!response.ok)throw new Error(result?.detail||("Upload failed (HTTP "+response.status+")"));
+      addChatLine("vale",result?.vale??"VALE returned no response.");
+    }catch(error){
+      addChatLine("vale","MEDIA CONNECTION ERROR // "+(error.message||"Unable to reach VALE media service."));
+    }finally{
+      pendingFile=null;if(attachmentPreview)attachmentPreview.innerHTML="";if(chatInput){chatInput.value="";resizeComposer();}
+      if(sendButton){sendButton.disabled=false;sendButton.textContent="SEND";}setComposerState("READY",false);
     }
-    function closeVaultPanel() {
-      if (!vault) return;
-      vault.hidden = true;
-      vault.classList.remove("is-open");
-      vault.setAttribute("aria-hidden", "true");
-    }
-    function showAttachment(file) {
-      if (!preview || !file) return;
-      preview.hidden = false;
-      preview.innerHTML = `<span class="vale-file-glyph">◈</span><span><b></b><small></small></span><button type="button" aria-label="Remove attachment">×</button>`;
-      preview.querySelector("b").textContent = file.name || "media object";
-      preview.querySelector("small").textContent = `${file.type || "media"} • ${Math.max(1, Math.round(file.size / 1024))} KB • READY`;
-      preview.querySelector("button").onclick = () => { preview.hidden = true; preview.textContent = ""; };
-    }
-    function pickFile(input) { closeVaultPanel(); if (input) input.click(); }
+  }
 
-    async function sendMedia(file) {
-      if (!file) return;
-      const token = getToken() || readStored(TOKEN_KEY);
-      if (!token) { lockUI(); return; }
-      const message = chatInput?.value.trim() || "";
-      showAttachment(file);
-      addChatLine("user", `[${file.type?.startsWith("audio/") ? "VOICE" : "MEDIA"}] ${file.name || "attachment"}${message ? "\n" + message : ""}`);
-      if (sendButton) { sendButton.disabled = true; sendButton.classList.add("is-busy"); }
-      setComposerState("TRANSMITTING");
-      const formData = new FormData();
-      formData.append("file", file, file.name || "voice-message.webm");
-      formData.append("message", message);
-      try {
-        const response = await fetch(API_BASE + "/chat-media", { method: "POST", headers: { "Authorization": "Bearer " + token }, body: formData });
-        const contentType = response.headers.get("content-type") || "";
-        let result;
-        if (contentType.includes("application/json")) result = await response.json();
-        else result = { detail: await response.text() };
-        if (!response.ok) { const error = new Error(result?.detail || "Media upload failed."); error.status = response.status; throw error; }
-        addChatLine("vale", result?.vale ?? "VALE received the media but returned no response.");
-      } catch (error) {
-        showValeError(error, "MEDIA BACKEND");
-      } finally {
-        if (sendButton) { sendButton.disabled = false; sendButton.classList.remove("is-busy"); }
-        setComposerState("READY");
-        if (chatInput) { chatInput.value = ""; autoGrowInput(); }
-      }
-    }
+  fileInput?.addEventListener("change",()=>{const f=fileInput.files?.[0];fileInput.value="";showAttachment(f);});
+  cameraInput?.addEventListener("change",()=>{const f=cameraInput.files?.[0];cameraInput.value="";showAttachment(f);});
+  cameraButton?.addEventListener("click",()=>cameraInput?.click());
 
-    if (attachButton) {
-      attachButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        openVault();
-      }, false);
-      attachButton.addEventListener("pointerup", () => openVault(), { passive: true });
-    }
-
-    document.addEventListener("click", (event) => {
-      const target = event.target;
-      if (!(target instanceof Element)) return;
-      const trigger = target.closest("#attachButton");
-      const close = target.closest("#closeVault");
-      if (trigger) {
-        event.preventDefault();
-        openVault();
-      } else if (close) {
-        event.preventDefault();
-        closeVaultPanel();
-      }
-    }, false);
-    if (closeVault) closeVault.addEventListener("click", closeVaultPanel);
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && vault && !vault.hidden) closeVaultPanel();
-    });
-    document.addEventListener("pointerdown", (event) => {
-      if (!vault || vault.hidden) return;
-      const target = event.target;
-      if (target instanceof Node && !vault.contains(target) && target !== attachButton && !attachButton?.contains(target)) {
-        closeVaultPanel();
-      }
-    }, { passive: true });
-    if ($( "vaultFile" )) $( "vaultFile" ).addEventListener("click", () => pickFile(fileInput));
-    if (cameraButton) cameraButton.addEventListener("click", () => pickFile(cameraInput));
-    if (photoButton) photoButton.addEventListener("click", () => pickFile(fileInput));
-    if (voiceButton) voiceButton.addEventListener("click", () => micButton?.click());
-    if (fileInput) fileInput.addEventListener("change", () => { const f=fileInput.files?.[0]; fileInput.value=""; if(f) sendMedia(f); });
-    if (cameraInput) cameraInput.addEventListener("change", () => { const f=cameraInput.files?.[0]; cameraInput.value=""; if(f) sendMedia(f); });
-
-    function chooseMime() {
-      const options = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg;codecs=opus"];
-      return options.find((m) => window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m)) || "";
-    }
-    async function startRecording() {
-      if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) { addChatLine("vale", "VOICE ERROR // This browser does not support microphone recording."); return; }
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
-        const mime = chooseMime();
-        mediaRecorder = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
-        audioChunks = [];
-        mediaRecorder.ondataavailable = (event) => { if (event.data?.size) audioChunks.push(event.data); };
-        mediaRecorder.onerror = () => { stream.getTracks().forEach(t => t.stop()); isRecording=false; setComposerState("READY"); };
-        mediaRecorder.onstop = () => {
-          const actualType = mediaRecorder.mimeType || mime || "audio/webm";
-          const ext = actualType.includes("mp4") ? "m4a" : actualType.includes("ogg") ? "ogg" : "webm";
-          const blob = new Blob(audioChunks, { type: actualType });
-          const file = new File([blob], `voice-message.${ext}`, { type: actualType });
-          stream.getTracks().forEach(t => t.stop());
-          if (blob.size) sendMedia(file); else addChatLine("vale", "VOICE ERROR // No audio data was captured.");
-        };
-        mediaRecorder.start(250);
-        isRecording = true; micButton?.classList.add("recording"); micButton.querySelector("small")?.replaceChildren(document.createTextNode("STOP")); setComposerState("LISTENING");
-      } catch (_) { addChatLine("vale", "VOICE ERROR // Microphone permission was denied or unavailable."); }
-    }
-    function stopRecording() { if (mediaRecorder && isRecording) { mediaRecorder.stop(); isRecording=false; micButton?.classList.remove("recording"); micButton.querySelector("small")?.replaceChildren(document.createTextNode("VOICE")); } }
-    if (micButton) micButton.addEventListener("click", () => isRecording ? stopRecording() : startRecording());
-  })();
+  async function startVoice(){
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      audioChunks=[];
+      const preferred=["audio/webm;codecs=opus","audio/webm","audio/ogg;codecs=opus"].find(t=>window.MediaRecorder?.isTypeSupported?.(t));
+      mediaRecorder=new MediaRecorder(stream,preferred?{mimeType:preferred}:undefined);
+      mediaRecorder.ondataavailable=e=>{if(e.data?.size)audioChunks.push(e.data);};
+      mediaRecorder.onstop=()=>{
+        const type=mediaRecorder.mimeType||preferred||"audio/webm";
+        const ext=type.includes("ogg")?"ogg":"webm";
+        const blob=new Blob(audioChunks,{type});
+        const file=new File([blob],"voice-message."+ext,{type});
+        stream.getTracks().forEach(t=>t.stop());
+        showAttachment(file);
+        setComposerState("VOICE READY");
+      };
+      mediaRecorder.start(250);isRecording=true;micButton.textContent="■";micButton.title="Stop recording";setComposerState("LISTENING");
+    }catch(error){addChatLine("vale","VOICE ERROR // Microphone access was denied or unavailable.");}
+  }
+  function stopVoice(){if(mediaRecorder&&isRecording){mediaRecorder.stop();isRecording=false;micButton.textContent="◉";micButton.title="Voice";}}
+  micButton?.addEventListener("click",()=>isRecording?stopVoice():startVoice());
+  vaultVoice?.addEventListener("click",()=>{closeVaultPanel();if(isRecording)stopVoice();else startVoice();});
 
   /* ---------------- BACKEND HEALTH ---------------- */
   async function syncBackendHealth() {
@@ -5760,17 +5593,14 @@ canvas{
 
 <style id="vale-render-backend-chat">
 .vale-backend-chat-line{
-  display:block;
-  width:auto;
-  min-width:0;
+  display:flex;
+  gap:12px;
   margin:10px 22px;
   padding:14px 16px;
   border:1px solid rgba(212,175,55,.10);
   border-radius:14px;
   background:rgba(255,255,255,.018);
   font:12px/1.7 "JetBrains Mono",monospace;
-  box-sizing:border-box;
-  overflow:visible;
 }
 .vale-backend-chat-line.user{
   border-color:rgba(212,175,55,.16);
@@ -5786,15 +5616,9 @@ canvas{
   letter-spacing:1.5px;
 }
 .vale-backend-chat-text{
-  display:block;
-  width:100%;
-  max-width:100%;
-  color:#eee0c1 !important;
+  color:#bcbcbc;
   white-space:pre-wrap;
   min-width:0;
-  overflow-wrap:anywhere;
-  word-break:break-word;
-  box-sizing:border-box;
 }
 #sendMessageButton:disabled{
   opacity:.55;
